@@ -49,7 +49,7 @@ body {
 .main {
     @include flexCenter(row);
     width: 90%;
-    height: 2000px; //this 2000px must delete after header sticky.
+    padding-top: 5rem;
     margin: 0 auto;
     #{&}__paragraph1 {
         /*String interpolation ???*/
