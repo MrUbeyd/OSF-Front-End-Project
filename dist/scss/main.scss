@@ -48,7 +48,8 @@ body {
 
 .main {
     @include flexCenter(row);
-    width: 80%;
+    width: 90%;
+    height: 2000px; //this 2000px must delete after header sticky.
     margin: 0 auto;
     #{&}__paragraph1 {
         /*String interpolation ???*/
@@ -107,8 +108,27 @@ body {
     background-color: $primary-color;
 }
 
+.active {
+    &:hover {
+        background-color: #262a32;
+        border-bottom: 0.175rem solid #94c53f;
+        a {
+            color: #e2e3e4!important;
+        }
+    }
+}
+
 #navbarNavDropdown {
     padding-right: 3rem;
+    ul {
+        height: 78px;
+        li {
+            height: 62px;
+            padding-bottom: 0;
+            margin-top: 18px;
+        }
+        align-items: center;
+    }
 }
 
 .row {
@@ -119,9 +139,30 @@ body {
     display: flex;
     flex-direction: row;
     padding: 0 3rem;
-    margin: auto;
+    margin: 0 auto;
     max-width: 1280px;
     max-height: 78px;
+}
+
+.header-icons {
+    // background-color: #94c53f;
+    ul {
+        margin: 0;
+        li {
+            display: inline-flex;
+            padding: 1.25rem;
+        }
+    }
+}
+
+.header-icons-filter {
+    height: 1.5rem;
+    //default color (~grey)
+    filter: invert(65%) sepia(0%) saturate(2343%) hue-rotate(343deg) brightness(104%) contrast(99%);
+    &:hover {
+        //green hover
+        filter: invert(77%) sepia(8%) saturate(2989%) hue-rotate(37deg) brightness(94%) contrast(85%);
+    }
 }
 
 // Fonts for OSF Academy(near logo)
