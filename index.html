@@ -11,13 +11,14 @@
 
     <!-- Main CSS File -->
     <link rel="stylesheet" href="./dist/css/main.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
 
     <title>OSF Home Page</title>
 </head>
 
 <body class="light">
 
-    <nav class="navbar navbar-light navbar-expand-md fixed-top">
+    <nav class="navbar navbar-light navbar-expand-md">
         <!-- Main div of navbar -->
         <div class="container-fluid">
             <!-- Logo part -->
@@ -133,6 +134,9 @@
 
                     </ul>
                 </div>
+
+
+
                 <!-- Icons -->
                 <div class="header-icons">
                     <ul>
@@ -143,17 +147,63 @@
                         </li>
                         <li>
                             <a href="#">
-                                <i><img src="./img/icons/User-.svg" class="header-icons-filter" alt="User icon"></i>
+                                <i><img src="./img/icons/User-.svg" class="header-icons-filter" alt="User icon" data-toggle="modal" data-target="#loginModal"></i>
+                            </a>
+                            <form lang="en">
+                                <!-- Modal -->
+                                <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header d-block">
+                                                <h3 class="modal-title text-center" id="loginModalLabel">Sign In</h3>
+                                                </button>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="text-center">
+                                                    <p class="text-left input-heding"><label for="email">Email</label></p>
+                                                    <input type="email" required class="input" name="email" id="email"><br>
+                                                </div>
+                                                <div style="height: 2rem;"></div>
+                                                <div class="text-center">
+                                                    <div class="row">
+                                                        <p class="text-left input-heding"><label for="password">Password</label></p>
+                                                        <p class="forgot-password"><label for="forgot-password">forgot password</label></p>
+                                                    </div>
+                                                    <div class="row">
+                                                        <input type="password" id="id_password" class="input input-password" name="password" id="password"><br>
+                                                        <i class="far fa-eye input-password-toggle" id="togglePassword" style=" cursor: pointer;"></i>
+
+                                                    </div>
+                                                </div>
+                                                <div style="height: 5rem;"></div>
+
+                                            </div>
+                                            <div class="modal-footer d-block">
+                                                <div class="text-center col">
+                                                    <button type="submit" class="btn btn-login" id="login_btn">LOGIN</button>
+                                                </div>
+                                                <div class="text-center col" style="margin: 0;">
+                                                    <a href="#" class="idh-account">I don't have an account</a>
+                                                    <div style="height: 2rem;"></div>
+
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- /.modal -->
+                            </form>
+
+                        </li>
+                        <li>
+                            <a href="# ">
+                                <i><img src="./img/icons/Fav-.svg " class="header-icons-filter " alt="Fav icon "></i>
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i><img src="./img/icons/Fav-.svg" class="header-icons-filter" alt="Fav icon"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i><img src="./img/icons/shopping-bag-.svg" class="header-icons-filter" alt="Shopping-Cart icon"></i>
+                            <a href="# ">
+                                <i><img src="./img/icons/shopping-bag-.svg " class="header-icons-filter " alt="Shopping-Cart icon "></i>
                             </a>
                         </li>
                     </ul>
@@ -175,6 +225,33 @@
 
 
 
+    <script>
+        const togglePassword = document.querySelector('#togglePassword');
+        const password = document.querySelector('#id_password');
+
+        togglePassword.addEventListener('click', function(e) {
+            // toggle the type attribute
+            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+            password.setAttribute('type', type);
+            // toggle the eye slash icon
+            this.classList.toggle('fa-eye-slash');
+        });
+
+        document.getElementById("login_btn").addEventListener('click', function(e) {
+            const passVal = password.value;
+            var passLenght = String(document.getElementById("id_password").value.toString());
+
+
+            if (/[A-Z]/.test(passVal) && /[0-9]/.test(passVal) && /[^A-Za-z0-9]/.test(passVal)) {
+                console.log("password specify the rules...");
+            } else {
+
+                alert("Password must have one special character, one number, one uppercase character and at least 6 character...");
+
+            }
+
+        });
+    </script>
 
 
 
@@ -192,11 +269,10 @@
 
 
 
-
-    <div class="main">
-        <p class="main__paragraph1">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
+    <div class="main ">
+        <p class="main__paragraph1 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
             dignissimos magnam sed eos recusandae voluptas cumque fugiat quaerat tenetur quos! Magnam sit rem et sunt repellat nesciunt ex non!</p>
-        <p class="main__paragraph2">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
+        <p class="main__paragraph2 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
             dignissimos magnam sed eos recusandae voluptas cumque fugiat quaerat tenetur quos! Magnam sit rem et sunt repellat nesciunt ex non!</p>
     </div>
 
@@ -205,9 +281,9 @@
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
 </body>
 
 </html>

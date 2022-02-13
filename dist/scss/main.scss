@@ -190,6 +190,79 @@ body {
     text-decoration-color: #94c53f;
 }
 
+.input {
+    padding: 0.5rem;
+    width: 80%;
+    border-bottom-left-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+    font-size: 18px;
+    border: 3px solid #d7d7d7;
+}
+
+.modal-header {
+    border: none;
+}
+
+.modal-title {
+    color: #45413e;
+    font-weight: weight(bold);
+    font-size: 2rem;
+    font-family: $lato;
+}
+
+.modal-body {
+    border: none;
+    color: black;
+}
+
+.modal-footer {
+    border: none;
+}
+
+.input-heding {
+    padding-left: 10%;
+    margin-bottom: 0;
+    font-family: $lato;
+    color: #45413e;
+}
+
+.forgot-password {
+    margin-bottom: 0;
+    font-family: $lato;
+    color: #94c53f;
+    padding-left: 40%;
+}
+
+.btn-login {
+    background-color: #94c53f;
+    padding: 0.5rem 4rem;
+    margin-bottom: 1rem;
+    border-bottom-left-radius: 1.5rem;
+    border-top-left-radius: 1.5rem;
+    border-bottom-right-radius: 1.5rem;
+    border-top-right-radius: 1.5rem;
+}
+
+.idh-account {
+    text-decoration: none;
+    color: #94c53f!important;
+}
+
+.input-password {
+    position: absolute;
+    margin: 0 2.8rem;
+    width: 372.8px;
+}
+
+.input-password-toggle {
+    margin-left: 24rem;
+    margin-top: 1rem;
+    z-index: 1600;
+    color: #c2c2c2;
+}
+
 // Fonts for OSF Academy(near logo)
 .font-lato-bold {
     font-family: $lato;
