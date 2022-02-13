@@ -184,6 +184,12 @@ body {
     padding-bottom: 0.5rem;
 }
 
+.underline-removebg:hover {
+    background-color: #262a32!important;
+    text-decoration: dotted underline;
+    text-decoration-color: #94c53f;
+}
+
 // Fonts for OSF Academy(near logo)
 .font-lato-bold {
     font-family: $lato;
