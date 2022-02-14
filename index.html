@@ -33,9 +33,7 @@
                     </div>
                 </a>
             </div>
-
             <!-- /Logo part -->
-
             <!-- Nav items -->
             <div class="row">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -45,8 +43,8 @@
                     <ul class="navbar-nav">
                         <li class="nav-item active dropdown position-static">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        SERVICES 
-                        </a>
+                                SERVICES 
+                            </a>
                             <div class="dropdown-menu w-100 text-center dropdown-bg" aria-labelledby="navbarDropdownMenuLink">
                                 <div class="container-fluid dropdown-bg">
                                     <div class="row w-100">
@@ -99,7 +97,6 @@
                                         </div>
                                     </div>
                                 </div>
-
                             </div>
                         </li>
                         <li class="nav-item active">
@@ -113,30 +110,25 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        EN
-                        </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                EN
+                            </a>
+                            <div class="dropdown-menu dropdown-lang-cur" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">TR</a>
+                                <a class="dropdown-item" href="#">FR</a>
+                                <a class="dropdown-item" href="#">DE</a>
                             </div>
                         </li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        $US
-                        </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <a class="dropdown-item" href="#">Action</a>
-                                <a class="dropdown-item" href="#">Another action</a>
-                                <a class="dropdown-item" href="#">Something else here</a>
+                                $US
+                            </a>
+                            <div class="dropdown-menu dropdown-lang-cur" aria-labelledby="navbarDropdownMenuLink">
+                                <a class="dropdown-item" href="#">₺ TRY</a>
+                                <a class="dropdown-item" href="#">€ EUR</a>
                             </div>
                         </li>
-
                     </ul>
                 </div>
-
-
-
                 <!-- Icons -->
                 <div class="header-icons">
                     <ul>
@@ -150,7 +142,7 @@
                                 <i><img src="./img/icons/User-.svg" class="header-icons-filter" alt="User icon" data-toggle="modal" data-target="#loginModal"></i>
                             </a>
                             <form lang="en">
-                                <!-- Modal -->
+                                <!-- Login Modal -->
                                 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
                                     <div class="modal-dialog modal-dialog-centered" role="document">
                                         <div class="modal-content">
@@ -172,11 +164,9 @@
                                                     <div class="row">
                                                         <input type="password" id="id_password" class="input input-password" name="password" id="password"><br>
                                                         <i class="far fa-eye input-password-toggle" id="togglePassword" style=" cursor: pointer;"></i>
-
                                                     </div>
                                                 </div>
                                                 <div style="height: 5rem;"></div>
-
                                             </div>
                                             <div class="modal-footer d-block">
                                                 <div class="text-center col">
@@ -185,16 +175,13 @@
                                                 <div class="text-center col" style="margin: 0;">
                                                     <a href="#" class="idh-account">I don't have an account</a>
                                                     <div style="height: 2rem;"></div>
-
                                                 </div>
-
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- /.modal -->
+                                <!-- /Login modal -->
                             </form>
-
                         </li>
                         <li>
                             <a href="# ">
@@ -207,79 +194,185 @@
                             </a>
                         </li>
                     </ul>
-
                 </div>
                 <!-- /Icons -->
             </div>
-
             <!-- /Nav items -->
-
-
-
         </div>
         <!-- /Main div of navbar -->
-
     </nav>
 
-
-
-
-
-    <script>
-        const togglePassword = document.querySelector('#togglePassword');
-        const password = document.querySelector('#id_password');
-
-        togglePassword.addEventListener('click', function(e) {
-            // toggle the type attribute
-            const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
-            password.setAttribute('type', type);
-            // toggle the eye slash icon
-            this.classList.toggle('fa-eye-slash');
-        });
-
-        document.getElementById("login_btn").addEventListener('click', function(e) {
-            const passVal = password.value;
-            var passLenght = String(document.getElementById("id_password").value.toString());
-
-
-            if (/[A-Z]/.test(passVal) && /[0-9]/.test(passVal) && /[^A-Za-z0-9]/.test(passVal)) {
-                console.log("password specify the rules...");
-            } else {
-
-                alert("Password must have one special character, one number, one uppercase character and at least 6 character...");
-
-            }
-
-        });
-    </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    <div class="main ">
-        <p class="main__paragraph1 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
-            dignissimos magnam sed eos recusandae voluptas cumque fugiat quaerat tenetur quos! Magnam sit rem et sunt repellat nesciunt ex non!</p>
-        <p class="main__paragraph2 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
-            dignissimos magnam sed eos recusandae voluptas cumque fugiat quaerat tenetur quos! Magnam sit rem et sunt repellat nesciunt ex non!</p>
+    <!-- Body -->
+    <div>
+        <div class="main ">
+            <p class="main__paragraph1 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
+                dignissimos magnam sed eos recusandae voluptas cumque fugiat quaerat tenetur quos! Magnam sit rem et sunt repellat nesciunt ex non!</p>
+            <p class="main__paragraph2 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
+                dignissimos magnam sed eos recusandae voluptas cumque fugiat quaerat tenetur quos! Magnam sit rem et sunt repellat nesciunt ex non!</p>
+        </div>
+        <div style="height: 500px;"></div>
     </div>
+    <!-- /Body -->
+
+    <!-- Footer -->
+    <div>
+        <section class="">
+            <footer class="bg-white ">
+                <!-- Grid container -->
+                <div class="container footer-main-container">
+                    <!-- Grid row -->
+                    <div class="row w-100">
+                        <!-- Grid column -->
+                        <div class="col-lg-3 col-md-12 mb-4 mb-md-0">
+                            <div class="pb-4 mb-3">
+                                &copy;Copyright
+                                <span id="copyrightYear">
+                                    <script>document.getElementById('copyrightYear').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                                </span>.<br>All Rights Reserved.
+                            </div>
+                            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+                            <p>
+                                Headquarters:<br>5600, Blvd. des Galeries, Bur 530<br>Québec, Québec G2K 2H6
+                            </p>
+                            <p>
+                                <a class="contact-mail-tel" href="mailto:contact@osf-global.com">contact@osf-global.com</a>
+                            </p>
+                            <p>
+                                <a class="contact-mail-tel" href="tel:+1 (888) 548-4344">+1 (888) 548-4344</a>
+                            </p>
+                        </div>
+                        <!-- /Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase pb-3">Categories</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Alcohol</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Art</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Books</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Drink</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Electronics</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- /Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase pb-3 text-white"> - </h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Home</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Jewelry</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Kids & Baby</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Men's Fashion</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Mobile</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Motorcycles</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Movies</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Music</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase pb-3 text-white"> - </h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Sport</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Toys</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Travel</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Woman's Fashion</a>
+                                </li>
+
+                            </ul>
+                        </div>
+                        <!-- /Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg col-md-6 mb-4 mb-md-0">
+                            <h5 class="text-uppercase pb-3">About</h5>
+                            <ul class="list-unstyled mb-0">
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">About us</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Delivery</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Testimonials</a>
+                                </li>
+                                <li class="pb-3">
+                                    <a href="#!" class="footer-categories">Contact</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Grid column -->
+
+                        <!-- Grid column -->
+                        <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                            <ul class="list-unstyled row">
+                                <li>
+                                    <a href="https://www.facebook.com/" target="_blank" class="footer-categories-icons"><i class="fab fa-facebook-f"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.google.com/" target="_blank" class="footer-categories-icons"><i class="fab fa-google-plus-g"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.twitter.com/" target="_blank" class="footer-categories-icons"><i class="fab fa-twitter"></i></a>
+                                </li>
+                                <li>
+                                    <a href="https://www.pinterest.com/" target="_blank" class="footer-categories-icons"><i class="fab fa-pinterest-p"></i></a>
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- /Grid column -->
+                    </div>
+                    <!-- /Grid row -->
+                </div>
+                <!-- /Grid container -->
+            </footer>
+        </section>
+    </div>
+    <!-- /Footer -->
+
 
 
 
 
     <!-- Optional JavaScript -->
+    <script src="./dist/js/main.js"></script>
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>

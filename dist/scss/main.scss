@@ -102,10 +102,15 @@ body {
     }
 }
 
+// navbar css
 .navbar {
     padding: 0;
     height: 5rem;
     background-color: $primary-color;
+    position: fixed;
+    right: 0;
+    left: 0;
+    z-index: 1041; // it must be upper than modal-bacdrop-fade(1040)
 }
 
 .active {
@@ -145,7 +150,6 @@ body {
 }
 
 .header-icons {
-    // background-color: #94c53f;
     ul {
         margin: 0;
         li {
@@ -190,6 +194,11 @@ body {
     text-decoration-color: #94c53f;
 }
 
+.dropdown-lang-cur {
+    min-width: 1rem!important;
+}
+
+// login pop-up css
 .input {
     padding: 0.5rem;
     width: 80%;
@@ -261,6 +270,37 @@ body {
     margin-top: 1rem;
     z-index: 1600;
     color: #c2c2c2;
+}
+
+.footer-main-container {
+    padding: 2.5rem 0;
+    min-width: 1280px;
+    margin-top: 2.5rem;
+}
+
+.contact-mail-tel {
+    text-decoration: none!important;
+    color: #262a32;
+    &:hover {
+        color: #94c53f;
+    }
+}
+
+.footer-categories {
+    text-decoration: none!important;
+    color: #7c7a78;
+    &:hover {
+        color: #94c53f;
+    }
+}
+
+.footer-categories-icons {
+    text-decoration: none!important;
+    color: #7c7a78;
+    &:hover {
+        color: #94c53f;
+    }
+    padding-right: 1rem!important;
 }
 
 // Fonts for OSF Academy(near logo)
