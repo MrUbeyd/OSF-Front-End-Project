@@ -41,7 +41,7 @@
 
 body {
     // background-color: $primary-color;
-    background-color: cadetblue;
+    background-color: #7c7a78;
     color: $text-color;
     font-weight: weight(regular);
 }
@@ -76,6 +76,30 @@ body {
 .light {
     /*Theme coloring if true light theme active, else dark theme active ???*/
     @include theme($light-theme: false);
+}
+
+
+/* Main Page CSS*/
+
+// Fonts for OSF Academy(near logo)
+.font-lato-bold {
+    font-family: $lato;
+    font-weight: weight(extraBold);
+    font-size: 2rem;
+    margin: 0;
+    line-height: 1;
+    align-content: center;
+    color: #011847;
+}
+
+.font-lato {
+    font-family: $lato;
+    font-weight: weight(regular);
+    font-size: 1rem;
+    margin: 0;
+    line-height: 1;
+    align-content: center;
+    color: #94c53f;
 }
 
 .logo {
@@ -275,7 +299,7 @@ body {
 .footer-main-container {
     padding: 2.5rem 0;
     min-width: 1280px;
-    margin-top: 2.5rem;
+    // margin-top: 2.5rem;
 }
 
 .contact-mail-tel {
@@ -303,23 +327,69 @@ body {
     padding-right: 1rem!important;
 }
 
-// Fonts for OSF Academy(near logo)
-.font-lato-bold {
-    font-family: $lato;
-    font-weight: weight(extraBold);
-    font-size: 2rem;
-    margin: 0;
-    line-height: 1;
-    align-content: center;
-    color: #011847;
-}
 
-.font-lato {
-    font-family: $lato;
-    font-weight: weight(regular);
-    font-size: 1rem;
-    margin: 0;
-    line-height: 1;
-    align-content: center;
-    color: #94c53f;
+/* /Main Page CSS*/
+
+
+/* 404 Page CSS*/
+
+.error-page-body {
+    background-color: #f1edea;
+    padding-top: 5rem;
+    width: 100%!important;
+    display: flex;
+    justify-content: center;
+    margin: auto;
+    right: 0;
+    left: 0;
+    .div-navigation {
+        background-color: #f1edea;
+        display: flex;
+        justify-content: center;
+        color: #94c53f;
+        padding: 3.5rem 0 1.5rem 0;
+        li {
+            color: #5c5855;
+            padding: 0 0.5rem;
+            a {
+                color: #94c53f;
+                &:hover {
+                    text-decoration: none!important;
+                    font-weight: weight(bold);
+                }
+            }
+            &:last-child p:last-child {
+                color: #5c5855;
+            }
+        }
+    }
+    .div-error {
+        background-color: #f1edea;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 80%;
+        margin: auto;
+        hr {
+            width: 45%;
+            border-top: 2px solid rgba(0, 0, 0, .1);
+            padding-bottom: 1rem;
+            margin: 0 2rem;
+        }
+        .error-number {
+            font-size: 2.25rem;
+            font-weight: weight(bold);
+        }
+    }
+    .error-body {
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        padding-bottom: 2.5rem;
+        img {
+            width: 85%;
+        }
+    }
 }
