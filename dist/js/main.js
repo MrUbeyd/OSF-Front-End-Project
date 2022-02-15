@@ -351,7 +351,28 @@ customElements.define('base-footer', BaseFooter)
     // /Base navbar and footer classes...
 
 
+// Cookie-container JS
 
+const cookieContainer = document.querySelector(".cookie-container");
+const cookieButton = document.querySelector(".cookie-button");
+const cookieCloseButton = document.querySelector(".btn-cookie-close");
+
+cookieCloseButton.addEventListener("click", () => {
+    cookieContainer.classList.remove("active");
+});
+
+cookieButton.addEventListener("click", () => {
+    cookieContainer.classList.remove("active");
+    localStorage.setItem("cookieBannerAccepted", "true");
+});
+
+setTimeout(() => {
+    if (!localStorage.getItem("cookieBannerAccepted")) {
+        cookieContainer.classList.add("active");
+    }
+}, 2000);
+
+// /Cookie-container JS
 
 
 // Login pop-up js
