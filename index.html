@@ -203,6 +203,7 @@
 
     <!-- Body -->
     <div>
+        <!-- Slider section -->
         <div class="first-section">
             <!--image slider start-->
             <div class="slider">
@@ -215,12 +216,27 @@
                     <!--slide images start-->
                     <div class="slide first">
                         <img src="./img/slider-img.jpg" alt="">
+                        <div class="left-text-slide">
+                            <h1>Control and manage any<br> device with cloud solutions</h1>
+                            <p>Improve business performance and the user experience<br> with the right mix of IoT technology and processes</p>
+                            <a href="#">VIEW MORE</a>
+                        </div>
                     </div>
                     <div class="slide">
                         <img src="./img/slider-img.jpg" alt="">
+                        <div class="center-text-slide">
+                            <h1>Control and manage any device with cloud solutions</h1>
+                            <p>Improve business performance and the user experience<br> with the right mix of IoT technology and processes</p>
+                            <a href="#">VIEW MORE</a>
+                        </div>
                     </div>
                     <div class="slide">
                         <img src="./img/slider-img.jpg" alt="">
+                        <div class="right-text-slide">
+                            <h1>Control and manage any<br> device with cloud solutions</h1>
+                            <p>Improve business performance and the user experience<br> with the right mix of IoT technology and processes</p>
+                            <a href="#">VIEW MORE</a>
+                        </div>
                     </div>
                     <!--slide images end-->
                     <!--automatic navigation start-->
@@ -258,6 +274,80 @@
                 </div>
             </div>
         </div>
+        <!-- /Slider section -->
+
+        <!-- Popular Items section -->
+        <div class="popular-items-section">
+            <div class="popular-items">
+                <div class="popular-items-heading">
+                    <hr class="mr-4">
+                    <h4>Popular Items</h4>
+                    <hr class="ml-4">
+                </div>
+                <div class="item-cards">
+
+                    <script type="text/javascript">
+                        const xhr = new XMLHttpRequest();
+                        xhr.onload = function() {
+                            if (this.status === 200) {
+                                try {
+                                    const resObj = JSON.parse(this.responseText);
+                                    console.log(resObj);
+                                    // if (resObj.product_price == "$20.97") {
+                                    //     document.getElementById("product-title").innerHTML = resObj.product_title;
+                                    // }
+                                    const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><a href="#">${price}</a></div><div class="overlay"><div class="extra-buttons"><a href="#"><i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-heart"></i></a></div></div></div>`
+                                    const divTemplateSecondProduct = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><div class="second-product"><a href="#">${price}</a><a href="#">BUY NOW</a></div></div></div>`
+                                    const divTemplateComment = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><a href="#">${price}</a></div><div class="overlay"><div class="extra-comment"><a href="#"><i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-heart"></i></a></div></div></div>`
+                                    resObj.forEach(item => {
+                                        if (item.product_id <= 8) {
+                                            var child = document.createElement('div');
+                                            if (item.product_id === 2) {
+                                                child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
+                                            } else if (item.product_id === 8) {
+                                                child.innerHTML = divTemplateComment(item.product_img, item.product_title, item.product_price);
+
+                                            } else {
+                                                child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
+
+                                            }
+                                            document.querySelectorAll('.item-cards')[0].appendChild(child);
+                                        }
+                                        document.getElementById("load_more").addEventListener('click', function(e) {
+                                            if (item.product_id <= 12 && item.product_id > 8) {
+                                                var child = document.createElement('div');
+                                                if (item.product_id === 2) {
+                                                    child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
+                                                } else {
+                                                    child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
+
+                                                }
+                                                document.querySelectorAll('.item-cards')[0].appendChild(child);
+                                            }
+                                            this.remove();
+                                        });
+                                    })
+
+                                } catch (e) {
+                                    console.warn("There was an error in the JSON. File could not parse!...");
+                                }
+                            } else {
+                                console.warn("Did not receive 200 OK from response!...");
+                            }
+                            // console.log(this);
+                        };
+                        xhr.open('get', 'products.json');
+                        xhr.send();
+                    </script>
+
+                </div>
+
+                <div class="text-center">
+                    <button type="button" id="load_more">LOAD MORE<i class="fas fa-redo"></i></button>
+                </div>
+            </div>
+        </div>
+        <!-- /Popular Items section -->
         <div class="main">
             <p class="main__paragraph1 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
                 dignissimos magnam sed eos recusandae voluptas cumque fugiat quaerat tenetur quos! Magnam sit rem et sunt repellat nesciunt ex non!</p>
