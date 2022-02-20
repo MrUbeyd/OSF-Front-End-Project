@@ -184,12 +184,19 @@
                         </li>
                         <li>
                             <a href="./dist/pages/404page.html">
-                                <i><img src="./img/icons/Fav-.svg " class="header-icons-filter " alt="Fav icon "></i>
+                                <div>
+                                    <i><img src="./img/icons/Fav-.svg " class="header-icons-filter " alt="Fav icon "></i>
+                                    <div class="fav_count"><span id="fav_span">3</span></div>
+                                </div>
                             </a>
                         </li>
                         <li>
                             <a href="# ">
-                                <i><img src="./img/icons/shopping-bag-.svg " class="header-icons-filter " alt="Shopping-Cart icon "></i>
+                                <div>
+                                    <i><img src="./img/icons/shopping-bag-.svg " class="header-icons-filter " alt="Shopping-Cart icon "></i>
+                                    <div class="cart_count"><span id="cart_span">3</span></div>
+                                </div>
+
                             </a>
                         </li>
                     </ul>
@@ -286,6 +293,7 @@
                 </div>
                 <div class="item-cards">
 
+                    <!-- This script not works when transport to js file IDK why??? -->
                     <script type="text/javascript">
                         const xhr = new XMLHttpRequest();
                         xhr.onload = function() {
@@ -296,38 +304,40 @@
                                     // if (resObj.product_price == "$20.97") {
                                     //     document.getElementById("product-title").innerHTML = resObj.product_title;
                                     // }
-                                    const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><a href="#">${price}</a></div><div class="overlay"><div class="extra-buttons"><a href="#"><i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-heart"></i></a></div></div></div>`
-                                    const divTemplateSecondProduct = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><div class="second-product"><a href="#">${price}</a><a href="#">BUY NOW</a></div></div></div>`
-                                    const divTemplateComment = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><a href="#">${price}</a></div><div class="overlay"><div class="extra-comment"><a href="#"><i class="fa fa-plus"></i></a><a href="#"><i class="fa fa-heart"></i></a></div></div></div>`
+                                    const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a>${title}</a><a>${price}</a></div><div class="overlay"><div class="extra-buttons"><a class="addItemToCart"><i class="fa fa-plus"></i></a><a class="addItemToFav"><i class="fa fa-heart" ></i></a></div></div></div>`
+                                    const divTemplateSecondProduct = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><div class="second-product"><a>${price}</a><a id="buyItemToCart">BUY NOW</a></div></div></div>`
+                                    const divTemplateComment = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><a href="#">${price}</a></div><div class="overlay"><div class="extra-comment"><p>My dragons are<br> misbehaving again.<br>Unbelieveable!</p><div class="comment"><i class="fa fa-comment"></i><p> 5H AGO</p></div></div></div></div>`
                                     resObj.forEach(item => {
-                                        if (item.product_id <= 8) {
-                                            var child = document.createElement('div');
-                                            if (item.product_id === 2) {
-                                                child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
-                                            } else if (item.product_id === 8) {
-                                                child.innerHTML = divTemplateComment(item.product_img, item.product_title, item.product_price);
-
-                                            } else {
-                                                child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
-
-                                            }
-                                            document.querySelectorAll('.item-cards')[0].appendChild(child);
-                                        }
-                                        document.getElementById("load_more").addEventListener('click', function(e) {
-                                            if (item.product_id <= 12 && item.product_id > 8) {
+                                            if (item.product_id <= 8) {
                                                 var child = document.createElement('div');
                                                 if (item.product_id === 2) {
                                                     child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
+                                                } else if (item.product_id === 8) {
+                                                    child.innerHTML = divTemplateComment(item.product_img, item.product_title, item.product_price);
                                                 } else {
                                                     child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
-
                                                 }
                                                 document.querySelectorAll('.item-cards')[0].appendChild(child);
                                             }
-                                            this.remove();
-                                        });
-                                    })
-
+                                            document.getElementById("load_more").addEventListener('click', function(e) {
+                                                if (item.product_id > 8 && item.product_id <= 12) {
+                                                    var child = document.createElement('div');
+                                                    if (item.product_id === 2) {
+                                                        child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
+                                                    } else {
+                                                        child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
+                                                    }
+                                                    document.querySelectorAll('.item-cards')[0].appendChild(child);
+                                                }
+                                                this.remove();
+                                            });
+                                        })
+                                        // navbar item count change processes
+                                    const buyItemBtn = document.querySelector("#buyItemToCart");
+                                    buyItemBtn.addEventListener("click", () => {
+                                        var itemCount = parseInt($("#cart_span").text());
+                                        document.getElementById("cart_span").innerHTML = itemCount + 1;
+                                    });
                                 } catch (e) {
                                     console.warn("There was an error in the JSON. File could not parse!...");
                                 }
@@ -339,6 +349,7 @@
                         xhr.open('get', 'products.json');
                         xhr.send();
                     </script>
+
 
                 </div>
 

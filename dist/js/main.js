@@ -408,3 +408,22 @@ setInterval(function() {
     }
 }, 5000);
 // /Slider JS
+
+
+
+// add +1 to navbar counts(fav, cart)
+const addItemToCartBtn = document.querySelectorAll(".addItemToCart");
+for (let i = 0; i < addItemToCartBtn.length; i++) {
+    console.log(addItemToCartBtn[i]);
+    addItemToCartBtn[i].addEventListener("click", () => {
+        var itemCount = parseInt($("#cart_span").text());
+        document.getElementById("cart_span").innerHTML = itemCount + 1;
+    });
+}
+const addItemToFavBtn = document.querySelectorAll(".addItemToFav");
+for (let i = 0; i < addItemToFavBtn.length; i++) {
+    addItemToFavBtn[i].addEventListener("click", () => {
+        var itemCount = parseInt($("#fav_span").text());
+        document.getElementById("fav_span").innerHTML = itemCount + 1;
+    });
+}
