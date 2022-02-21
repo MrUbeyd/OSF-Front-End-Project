@@ -1,85 +1,73 @@
-[
-
-    {
+[{
         "product_id": 1,
-        "product_title": "Very important product 1",
-        "product_price": "$21.97",
-        "product_img": "/img/slider-img.jpg"
-
+        "product_title": "Kristina Dam Oak Table With White Marble Top",
+        "product_price": "$799.55",
+        "product_img": "/img/product_images/product-1.jpg"
     },
     {
         "product_id": 2,
-        "product_title": "Very important product 2",
-        "product_price": "$22.97",
-        "product_img": "/img/sales.jpg"
+        "product_title": "Hay - About A Lounge<br> Chair AAL 93",
+        "product_price": "$659.55",
+        "product_img": "/img/product_images/product-2.jpg"
     },
     {
         "product_id": 3,
-        "product_title": "Very important product 3",
-        "product_price": "$23.97",
-        "product_img": "/img/sales.jpg"
+        "product_title": "Activate Facial Mask and<br> Charcoal Soap",
+        "product_price": "$129.55",
+        "product_img": "/img/product_images/product-3.jpg"
     },
     {
         "product_id": 4,
-        "product_title": "Very important product 4",
-        "product_price": "$24.97",
-        "product_img": "/img/sales.jpg"
-
+        "product_title": "Cocktail Table Walnut<br> |YES",
+        "product_price": "$299.99",
+        "product_img": "/img/product_images/product-4.jpg"
     },
     {
         "product_id": 5,
-        "product_title": "Very important product 5",
-        "product_price": "$25.97",
-        "product_img": "/img/sales.jpg"
-
+        "product_title": "Hay - About A Lounge<br> Chair AAL 93",
+        "product_price": "$659.55",
+        "product_img": "/img/product_images/product-5.jpg"
     },
     {
         "product_id": 6,
-        "product_title": "Very important product 6",
-        "product_price": "$26.97",
-        "product_img": "/img/sales.jpg"
-
+        "product_title": "TORY DESK CALENDAR",
+        "product_price": "$410.99",
+        "product_img": "/img/product_images/product-6.jpg"
     },
     {
         "product_id": 7,
-        "product_title": "Very important product 7",
-        "product_price": "$27.97",
-        "product_img": "/img/sales.jpg"
-
+        "product_title": "CH445 Wing Chair on<br> SUITE NY",
+        "product_price": "$330.55",
+        "product_img": "/img/product_images/product-7.jpg"
     },
     {
         "product_id": 8,
         "product_title": "Very important product 8",
         "product_price": "$28.97",
-        "product_img": "/img/sales.jpg"
-
+        "product_img": "/img/comment-img.jpg"
     },
     {
         "product_id": 9,
-        "product_title": "Very important product 9",
+        "product_title": "Very important product 1",
         "product_price": "$29.97",
-        "product_img": "/img/sales.jpg"
-
+        "product_img": "/img/product_images/product-1.jpg"
     },
     {
         "product_id": 10,
-        "product_title": "Very important product 10",
+        "product_title": "Very important product 2",
         "product_price": "$30.97",
-        "product_img": "/img/sales.jpg"
-
+        "product_img": "/img/product_images/product-2.jpg"
     },
     {
         "product_id": 11,
-        "product_title": "Very important product 11",
+        "product_title": "Very important product 3",
         "product_price": "$31.97",
-        "product_img": "/img/sales.jpg"
-
-    }, {
+        "product_img": "/img/product_images/product-3.jpg"
+    },
+    {
         "product_id": 12,
-        "product_title": "Very important product 12",
+        "product_title": "Very important product 4",
         "product_price": "$32.97",
-        "product_img": "/img/sales.jpg"
-
+        "product_img": "/img/product_images/product-4.jpg"
     }
-
 ]

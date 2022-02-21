@@ -186,7 +186,7 @@
                             <a href="./dist/pages/404page.html">
                                 <div>
                                     <i><img src="./img/icons/Fav-.svg " class="header-icons-filter " alt="Fav icon "></i>
-                                    <div class="fav_count"><span id="fav_span">3</span></div>
+                                    <div class="fav_count"><span id="fav_span">1</span></div>
                                 </div>
                             </a>
                         </li>
@@ -194,7 +194,7 @@
                             <a href="# ">
                                 <div>
                                     <i><img src="./img/icons/shopping-bag-.svg " class="header-icons-filter " alt="Shopping-Cart icon "></i>
-                                    <div class="cart_count"><span id="cart_span">3</span></div>
+                                    <div class="cart_count"><span id="cart_span">2</span></div>
                                 </div>
 
                             </a>
@@ -306,7 +306,7 @@
                                     // }
                                     const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a>${title}</a><a>${price}</a></div><div class="overlay"><div class="extra-buttons"><a class="addItemToCart"><i class="fa fa-plus"></i></a><a class="addItemToFav"><i class="fa fa-heart" ></i></a></div></div></div>`
                                     const divTemplateSecondProduct = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><div class="second-product"><a>${price}</a><a id="buyItemToCart">BUY NOW</a></div></div></div>`
-                                    const divTemplateComment = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><a href="#">${price}</a></div><div class="overlay"><div class="extra-comment"><p>My dragons are<br> misbehaving again.<br>Unbelieveable!</p><div class="comment"><i class="fa fa-comment"></i><p> 5H AGO</p></div></div></div></div>`
+                                    const divTemplateComment = (img_url) => `<div class="item-card"><div class="comment-bg"><img src="${img_url}" alt="comment bg img"></div><div class="overlay"><div class="extra-comment"><p>My dragons are<br> misbehaving again.<br>Unbelieveable!</p><div class="comment"><i class="fa fa-comment"></i><p> 5H AGO</p></div></div></div></div>`
                                     resObj.forEach(item => {
                                             if (item.product_id <= 8) {
                                                 var child = document.createElement('div');
@@ -359,6 +359,80 @@
             </div>
         </div>
         <!-- /Popular Items section -->
+
+        <!-- Banner section -->
+        <div class="banner-section">
+            <img src="/img/banner-img.png" alt="banner img">
+        </div>
+        <!-- /Banner section -->
+
+        <!-- Featured Products section -->
+        <div class="featured-products-secion">
+            <div class="featured-products-heading">
+                <h2>Featured Products</h2>
+                <p>Unde omnis iste natus error sit voluptatem</p>
+            </div>
+            <div class="featured-products-slider">
+                <a id="left_arrow"><i class="fa fa-angle-left"></i></a>
+                <hr class="mr-4">
+                <h4>///</h4>
+                <hr class="ml-4">
+                <a id="right_arrow"><i class="fa fa-angle-right"></i></a>
+            </div>
+            <div class="featured-products">
+                <div class="item-card" id="first_featured_item">
+                    <div class="item-img"><img src="./img/product_images/product-1.jpg" alt="product img"></div>
+                    <div class="item-detail"><a href="#">Kristina Dam Oak Table With White Marble Top</a>
+                        <div class="slider-product"><a>Marketing</a></div>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="item-img"><img src="./img/product_images/product-2.jpg" alt="product img"></div>
+                    <div class="item-detail"><a href="#">Hay - About A Lounge<br> Chair AAL 93</a>
+                        <div class="slider-product"><a>Awesome</a></div>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="item-img"><img src="./img/product_images/product-3.jpg" alt="product img"></div>
+                    <div class="item-detail"><a href="#">Activate Facial Mask and<br> Charcoal Soap</a>
+                        <div class="slider-product"><a>Marketing</a></div>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="item-img"><img src="./img/product_images/product-4.jpg" alt="product img"></div>
+                    <div class="item-detail"><a href="#">Cocktail Table Walnut<br> |YES</a>
+                        <div class="slider-product"><a>Awesome</a></div>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="item-img"><img src="./img/product_images/product-5.jpg" alt="product img"></div>
+                    <div class="item-detail"><a href="#">Hay - About A Lounge<br> Chair AAL 93</a>
+                        <div class="slider-product"><a>Marketing</a></div>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="item-img"><img src="./img/product_images/product-6.jpg" alt="product img"></div>
+                    <div class="item-detail"><a href="#">TORY DESK CALENDAR</a>
+                        <div class="slider-product"><a>Awesome</a></div>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="item-img"><img src="./img/product_images/product-7.jpg" alt="product img"></div>
+                    <div class="item-detail"><a href="#">CH445 Wing Chair on<br> SUITE NY</a>
+                        <div class="slider-product"><a>Marketing</a></div>
+                    </div>
+                </div>
+                <div class="item-card">
+                    <div class="item-img"><img src="./img/product_images/product-1.jpg" alt="product img"></div>
+                    <div class="item-detail"><a href="#">Kristina Dam Oak Table With White Marble Top</a>
+                        <div class="slider-product"><a>Awesome</a></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!-- /Featured Products section -->
+
         <div class="main">
             <p class="main__paragraph1 ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Illum nam recusandae ducimus ullam distinctio molestiae, temporibus non dolorem voluptates a ex officia exercitationem similique voluptate? Possimus voluptatum amet officia, laudantium
                 dignissimos magnam sed eos recusandae voluptas cumque fugiat quaerat tenetur quos! Magnam sit rem et sunt repellat nesciunt ex non!</p>

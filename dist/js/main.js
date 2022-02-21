@@ -411,7 +411,7 @@ setInterval(function() {
 
 
 
-// add +1 to navbar counts(fav, cart)
+// add +1 to navbar counts(fav, cart) JS
 const addItemToCartBtn = document.querySelectorAll(".addItemToCart");
 for (let i = 0; i < addItemToCartBtn.length; i++) {
     console.log(addItemToCartBtn[i]);
@@ -427,3 +427,53 @@ for (let i = 0; i < addItemToFavBtn.length; i++) {
         document.getElementById("fav_span").innerHTML = itemCount + 1;
     });
 }
+
+// Featured Products section JS
+document.getElementById("left_arrow").addEventListener('click', function(e) {
+    const item_card = document.getElementById("first_featured_item");
+    if (getComputedStyle(item_card).marginLeft === "-240px") {
+        item_card.style.marginLeft = "0px";
+    } else if (getComputedStyle(item_card).marginLeft === "-480px") {
+        item_card.style.marginLeft = "-240px";
+    } else if (getComputedStyle(item_card).marginLeft === "-720px") {
+        item_card.style.marginLeft = "-480px";
+    } else if (getComputedStyle(item_card).marginLeft === "-960px") {
+        item_card.style.marginLeft = "-720px";
+    } else {
+        item_card.style.marginLeft = "-960px";
+    }
+});
+document.getElementById("right_arrow").addEventListener('click', function(e) {
+    const item_card = document.getElementById("first_featured_item");
+    if (getComputedStyle(item_card).marginLeft === "0px") {
+        item_card.style.marginLeft = "-240px";
+    } else if (getComputedStyle(item_card).marginLeft === "-240px") {
+        item_card.style.marginLeft = "-480px";
+    } else if (getComputedStyle(item_card).marginLeft === "-480px") {
+        item_card.style.marginLeft = "-720px";
+    } else if (getComputedStyle(item_card).marginLeft === "-720px") {
+        item_card.style.marginLeft = "-960px";
+    } else {
+        item_card.style.marginLeft = "0px";
+    }
+});
+
+function recursiveSlider() {
+    setTimeout(() => {
+        console.log("5sn gecti");
+        const item_card = document.getElementById("first_featured_item");
+        if (getComputedStyle(item_card).marginLeft === "0px") {
+            item_card.style.marginLeft = "-480px";
+        } else if (getComputedStyle(item_card).marginLeft === "-240px") {
+            item_card.style.marginLeft = "-480px";
+        } else if (getComputedStyle(item_card).marginLeft === "-480px") {
+            item_card.style.marginLeft = "-960px";
+        } else if (getComputedStyle(item_card).marginLeft === "-720px") {
+            item_card.style.marginLeft = "-960px";
+        } else {
+            item_card.style.marginLeft = "0px";
+        }
+        recursiveSlider();
+    }, 2500);
+}
+recursiveSlider();

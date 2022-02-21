@@ -347,10 +347,9 @@ body {
 }
 
 .footer-main-container {
-    padding: 2.5rem 0;
+    padding: 2.5rem 2.5rem;
     min-width: 80rem;
     display: flex;
-    // margin-top: 2.5rem;
 }
 
 .contact-mail-tel {
@@ -689,7 +688,7 @@ body {
         width: 80%;
         max-width: 80rem;
         .popular-items-heading {
-            max-width: 62.56rem;
+            max-width: 80rem;
             margin: 0 auto;
             margin-bottom: 1rem;
             @include flexCenter(row);
@@ -709,7 +708,7 @@ body {
             flex-wrap: wrap;
             overflow: hidden;
             margin: auto;
-            max-width: 62.56rem;
+            max-width: 78rem;
             .item-card {
                 margin-left: 0.5rem;
                 margin-right: 0.5rem;
@@ -725,6 +724,18 @@ body {
                     img {
                         width: 14.65rem;
                         height: 16.25rem;
+                        border-top-left-radius: 0.5rem;
+                        border-top-right-radius: 0.5rem;
+                    }
+                }
+                .comment-bg {
+                    width: 14.64rem;
+                    height: 22.875rem;
+                    display: flex;
+                    justify-content: center;
+                    img {
+                        width: 14.65rem;
+                        height: 22.875rem;
                         border-top-left-radius: 0.5rem;
                         border-top-right-radius: 0.5rem;
                     }
@@ -748,10 +759,12 @@ body {
                     a:first-of-type {
                         color: #777471;
                         margin-bottom: 0.5rem;
+                        text-align: center;
+                        font-size: 0.85rem;
                     }
                     .second-product {
                         a:first-of-type {
-                            padding: 0.2rem 1rem;
+                            padding: 0.35rem 1rem 0.2rem 1rem;
                             border: 3px solid #e5e5e5;
                             border-right: 1px solid #e5e5e5;
                             color: #24c36c;
@@ -864,6 +877,106 @@ body {
             }
             &:hover {
                 background-color: #84bc22;
+            }
+        }
+    }
+}
+
+.banner-section {
+    img {
+        width: 100%;
+    }
+}
+
+.featured-products-secion {
+    @include flexCenter(column);
+    text-align: center;
+    background-color: #262a32;
+    color: white;
+    padding-top: 2rem;
+    .featured-products-heading {
+        width: 80%;
+    }
+    .featured-products-slider {
+        width: 80%;
+        @include flexCenter(row);
+        h4 {
+            color: white;
+            font-weight: weight(bold);
+        }
+        hr {
+            width: 20%;
+            border-top: 0.25rem solid white;
+        }
+        a {
+            margin: 0 1rem;
+            background-color: #2d343a;
+            width: 2rem;
+            height: 2rem;
+            i {
+                margin-top: 0.5rem;
+                color: #f4f4f5;
+            }
+        }
+    }
+    .featured-products {
+        padding: 2rem 0;
+        display: flex;
+        align-items: center;
+        overflow: hidden;
+        max-width: 60rem;
+        #first_featured_item {
+            margin-left: -0%;
+        }
+        .item-card {
+            position: relative;
+            margin-left: 0.5rem;
+            margin-right: 0.5rem;
+            margin-bottom: 1rem;
+            width: 14rem;
+            height: 22rem;
+            // &:first-of-type {
+            //     margin-left: -50%;
+            // }
+            .item-img {
+                width: 14rem;
+                height: 16rem;
+                display: flex;
+                justify-content: center;
+                img {
+                    width: 14rem;
+                    height: 16rem;
+                    border-top-left-radius: 0.5rem;
+                    border-top-right-radius: 0.5rem;
+                }
+            }
+            .item-detail {
+                @include flexCenter(column);
+                height: 6rem;
+                width: 14rem;
+                background-color: white;
+                border: 1px solid #73767b;
+                border-top: 0;
+                border-bottom-left-radius: 0.5rem;
+                border-bottom-right-radius: 0.5rem;
+                padding: 0.5rem;
+                a {
+                    color: #011847;
+                    &:hover {
+                        text-decoration: none;
+                    }
+                }
+                a:first-of-type {
+                    color: #777471;
+                    margin-bottom: 0.5rem;
+                    text-align: center;
+                    font-size: 0.85rem;
+                }
+                .slider-product {
+                    a {
+                        color: #24c36c;
+                    }
+                }
             }
         }
     }
