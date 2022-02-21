@@ -982,6 +982,24 @@ body {
     }
 }
 
+.benfits-section {
+    @include flexCenter(row);
+    background-color: #45413e;
+    .benefit {
+        @include flexCenter(row);
+        // .benefit-img {}
+        .benefit-content {
+            padding: 2rem;
+            h5 {
+                color: white;
+            }
+            p {
+                color: #827f7c;
+            }
+        }
+    }
+}
+
 
 /* /Main Page CSS*/
 
