@@ -97,10 +97,126 @@
                 <h5>12,931</h5>
                 <p>results in apparel</p>
             </div>
+
+            <div class="item-cards">
+                <script type="text/javascript">
+                    const xhr = new XMLHttpRequest();
+                    xhr.onload = function() {
+                        if (this.status === 200) {
+                            try {
+                                const resObj = JSON.parse(this.responseText);
+                                console.log(resObj);
+                                const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a>${title}</a><a>${price}</a></div></div>`
+                                resObj.forEach(item => {
+                                        if (item.product_id <= 8) {
+                                            var child = document.createElement('div');
+                                            child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
+                                            document.querySelectorAll('.item-cards')[0].appendChild(child);
+                                        }
+                                        document.getElementById("services_load_more").addEventListener('click', function(e) {
+                                            if (item.product_id > 8 && item.product_id <= 12) {
+                                                var child = document.createElement('div');
+                                                if (item.product_id === 2) {
+                                                    child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
+                                                } else {
+                                                    child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
+                                                }
+                                                document.querySelectorAll('.item-cards')[0].appendChild(child);
+                                            }
+                                            this.remove();
+                                        });
+                                    })
+                                    // navbar item count change processes
+
+                            } catch (e) {
+                                console.warn("There was an error in the JSON. File could not parse!...");
+                            }
+                        } else {
+                            console.warn("Did not receive 200 OK from response!...");
+                        }
+                        // console.log(this);
+                    };
+                    xhr.open('get', '/products.json');
+                    xhr.send();
+                </script>
+            </div>
+            <div class="free-line"></div>
+            <!-- this line is made for prevent the row order from breaking. -->
+            <div class="text-center">
+                <button type="button" id="services_load_more">LOAD MORE</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- /Body -->
+
+    <!-- Featured Products section -->
+    <div class="featured-products-secion">
+        <div class="featured-products-heading">
+            <h2>Featured Products</h2>
+            <p>Unde omnis iste natus error sit voluptatem</p>
+        </div>
+        <div class="featured-products-slider">
+            <a id="services_left_arrow"><i class="fa fa-angle-left"></i></a>
+            <hr class="mr-4">
+            <h4>///</h4>
+            <hr class="ml-4">
+            <a id="services_right_arrow"><i class="fa fa-angle-right"></i></a>
+        </div>
+        <div class="featured-products">
+            <div class="item-card" id="services_first_featured_item">
+                <div class="item-img"><img src="/img/product_images/product-1.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Kristina Dam Oak Table With White Marble Top</a>
+                    <div class="slider-product"><a>Marketing</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-2.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Hay - About A Lounge<br> Chair AAL 93</a>
+                    <div class="slider-product"><a>Awesome</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-3.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Activate Facial Mask and<br> Charcoal Soap</a>
+                    <div class="slider-product"><a>Marketing</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-4.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Cocktail Table Walnut<br> |YES</a>
+                    <div class="slider-product"><a>Awesome</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-5.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Hay - About A Lounge<br> Chair AAL 93</a>
+                    <div class="slider-product"><a>Marketing</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-6.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">TORY DESK CALENDAR</a>
+                    <div class="slider-product"><a>Awesome</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-7.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">CH445 Wing Chair on<br> SUITE NY</a>
+                    <div class="slider-product"><a>Marketing</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-1.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Kristina Dam Oak Table With White Marble Top</a>
+                    <div class="slider-product"><a>Awesome</a></div>
+                </div>
+            </div>
+
         </div>
     </div>
+    <!-- /Featured Products section -->
 
-    <!-- /Body -->
 
     <!-- This tags call HTML from JS -->
     <base-footer></base-footer>

@@ -305,7 +305,7 @@
                                     //     document.getElementById("product-title").innerHTML = resObj.product_title;
                                     // }
                                     const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a>${title}</a><a>${price}</a></div><div class="overlay"><div class="extra-buttons"><a class="addItemToCart"><i class="fa fa-plus"></i></a><a class="addItemToFav"><i class="fa fa-heart" ></i></a></div></div></div>`
-                                    const divTemplateSecondProduct = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a href="#">${title}</a><div class="second-product"><a>${price}</a><a id="buyItemToCart">BUY NOW</a></div></div></div>`
+                                    const divTemplateSecondProduct = (img_url, title, price) => `<div class="item-card"><div class="item-img"><a href="/dist/pages/productDetailedPage.html"><img src="${img_url}" alt="product img"></a></div><div class="item-detail"><a href="/dist/pages/productDetailedPage.html">${title}</a><div class="second-product"><a href="/dist/pages/productDetailedPage.html">${price}</a><a id="buyItemToCart">BUY NOW</a></div></div></div>`
                                     const divTemplateComment = (img_url) => `<div class="item-card"><div class="comment-bg"><img src="${img_url}" alt="comment bg img"></div><div class="overlay"><div class="extra-comment"><p>My dragons are<br> misbehaving again.<br>Unbelieveable!</p><div class="comment"><i class="fa fa-comment"></i><p> 5H AGO</p></div></div></div></div>`
                                     resObj.forEach(item => {
                                             if (item.product_id <= 8) {
@@ -349,7 +349,6 @@
                         xhr.open('get', 'products.json');
                         xhr.send();
                     </script>
-
 
                 </div>
 

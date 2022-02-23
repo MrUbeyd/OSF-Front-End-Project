@@ -178,7 +178,7 @@ class BaseNavbar extends HTMLElement {
                             <a href="# ">
                                 <div>
                                     <i><img src="/img/icons/shopping-bag-.svg " class="header-icons-filter " alt="Shopping-Cart icon "></i>
-                                    <div class="cart_count"><span id="cart_span">2</span></div>
+                                    <div class="cart_count"><span class="cart_product_count" id="cart_span">2</span></div>
                                 </div>
 
                             </a>
@@ -211,8 +211,8 @@ class BaseFooter extends HTMLElement {
                         <div class="text-left col-lg-3 col-md-12 mb-4 mb-md-0">
                             <div class="pb-4 mb-3">
                                 &copy;Copyright
-                                <span id="copyrightYear">
-                                    <script>document.getElementById('copyrightYear').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                                <span>
+                                    2022
                                 </span>.<br>All Rights Reserved.
                             </div>
                             <h6 class="text-uppercase font-weight-bold">Contact</h6>
@@ -377,7 +377,7 @@ setTimeout(() => {
     if (!localStorage.getItem("cookieBannerAccepted")) {
         cookieContainer.classList.add("active");
     }
-}, 2000);
+}, 10000);
 
 // /Cookie-container JS
 
@@ -484,3 +484,54 @@ function recursiveSlider() {
     }, 2500);
 }
 recursiveSlider();
+
+//!!! Category Landing Page Featured Products NOT WORKS
+
+// document.getElementById("services_left_arrow").addEventListener('click', function(e) {
+//     const item_card_services = document.getElementById("services_first_featured_item");
+//     if (getComputedStyle(item_card_services).marginLeft === "-240px") {
+//         item_card_services.style.marginLeft = "0px";
+//     } else if (getComputedStyle(item_card_services).marginLeft === "-480px") {
+//         item_card_services.style.marginLeft = "-240px";
+//     } else if (getComputedStyle(item_card_services).marginLeft === "-720px") {
+//         item_card_services.style.marginLeft = "-480px";
+//     } else if (getComputedStyle(item_card_services).marginLeft === "-960px") {
+//         item_card_services.style.marginLeft = "-720px";
+//     } else {
+//         item_card_services.style.marginLeft = "-960px";
+//     }
+// });
+// document.getElementById("services_right_arrow").addEventListener('click', function(e) {
+//     const item_card_services = document.getElementById("services_first_featured_item");
+//     if (getComputedStyle(item_card_services).marginLeft === "0px") {
+//         item_card_services.style.marginLeft = "-240px";
+//     } else if (getComputedStyle(item_card_services).marginLeft === "-240px") {
+//         item_card_services.style.marginLeft = "-480px";
+//     } else if (getComputedStyle(item_card_services).marginLeft === "-480px") {
+//         item_card_services.style.marginLeft = "-720px";
+//     } else if (getComputedStyle(item_card_services).marginLeft === "-720px") {
+//         item_card_services.style.marginLeft = "-960px";
+//     } else {
+//         item_card_services.style.marginLeft = "0px";
+//     }
+// });
+
+// function recursiveSliderServices() {
+//     setTimeout(() => {
+//         console.log("5sn gecti");
+//         const item_card_services = document.getElementById("services_first_featured_item");
+//         if (getComputedStyle(item_card_services).marginLeft === "0px") {
+//             item_card_services.style.marginLeft = "-480px";
+//         } else if (getComputedStyle(item_card_services).marginLeft === "-240px") {
+//             item_card_services.style.marginLeft = "-480px";
+//         } else if (getComputedStyle(item_card_services).marginLeft === "-480px") {
+//             item_card_services.style.marginLeft = "-960px";
+//         } else if (getComputedStyle(item_card_services).marginLeft === "-720px") {
+//             item_card_services.style.marginLeft = "-960px";
+//         } else {
+//             item_card_services.style.marginLeft = "0px";
+//         }
+//         recursiveSliderServices();
+//     }, 2500);
+// }
+// recursiveSliderServices();
