@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="/dist/css/main.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <title>Product Detailed Page</title>
+</head>
+
+
+<body>
+    <!-- This tags call HTML from JS -->
+    <base-navbar></base-navbar>
+
+    <!-- Body -->
+    <div class="product-page-body w-100 row fill">
+        <div class="col-lg-6">
+            <ul class="list-unstyled row div-navigation">
+                <li>
+                    <a href="/index.html">Home</a>
+                </li>
+                <li>
+                    <p>/</p>
+                </li>
+                <li>
+                    <a href="/index.html">OSF Theme</a>
+                </li>
+                <li>
+                    <p>/</p>
+                </li>
+                <li>
+                    <p>Archi Desk Accessories Pen Cup</p>
+                </li>
+            </ul>
+        </div>
+
+        <div class="div-product-heading">
+            <hr>
+            <p class="product-heading">Archi Desk Accessories Pen Cup</p>
+            <hr>
+        </div>
+        <div class="product-body">
+            <div class="product-details">
+                <div class="product-big-img">
+                    <img id="product_big_img" src="/img/product_images/pdp-1-big.jpg" alt="Product 1 Big img">
+                </div>
+                <div class="product-imgs">
+                    <a class="p_img_1 selected">
+                        <img src="/img/product_images/pdp-1-small.jpg" alt="Product 1 Small img">
+                    </a>
+                    <a class="p_img_2">
+                        <img src="/img/product_images/pdp-2-small.jpg" alt="Product 2 Small img">
+                    </a>
+                    <a class="p_img_3">
+                        <img src="/img/product_images/pdp-3-small.jpg" alt="Product 3 Small img">
+                    </a>
+                    <a class="p_img_4">
+                        <img src="/img/product_images/pdp-4-small.jpg" alt="Product 4 Small img">
+                    </a>
+                </div>
+                <div class="product-content">
+                    <h1>$299.99</h1>
+                    <div class="product-color">
+                        <div class="color"></div>
+                        <h6>Dark Gray</h6>
+                        <i class="fa fa-angle-down filter-icon" aria-hidden="true"></i>
+                    </div>
+                    <div class="row">
+                        <div class="product-quantity">
+                            <a id="decrease-count">
+                                <i class="fa fa-minus" aria-hidden="true"></i>
+                            </a>
+                            <div class="product_count">
+                                <span id="product_span">1</span>
+                            </div>
+                            <a id="increase-count">
+                                <i class="fa fa-plus" aria-hidden="true"></i>
+                            </a>
+                            <script type="text/javascript">
+                                // Big img change js process
+                                const productImage1 = document.querySelector(".p_img_1");
+                                const productImage2 = document.querySelector(".p_img_2");
+                                const productImage3 = document.querySelector(".p_img_3");
+                                const productImage4 = document.querySelector(".p_img_4");
+                                var bigImg = document.getElementById("product_big_img");
+
+                                productImage1.addEventListener("click", () => {
+                                    productImage1.classList.add("selected");
+                                    productImage2.classList.remove("selected");
+                                    productImage3.classList.remove("selected");
+                                    productImage4.classList.remove("selected");
+
+                                    bigImg.src = "/img/product_images/pdp-1-big.jpg";
+                                });
+
+                                productImage2.addEventListener("click", () => {
+                                    productImage2.classList.add("selected");
+                                    productImage1.classList.remove("selected");
+                                    productImage3.classList.remove("selected");
+                                    productImage4.classList.remove("selected");
+
+                                    bigImg.src = "/img/product_images/pdp-2-big.jpg";
+                                });
+
+                                productImage3.addEventListener("click", () => {
+                                    productImage3.classList.add("selected");
+                                    productImage1.classList.remove("selected");
+                                    productImage2.classList.remove("selected");
+                                    productImage4.classList.remove("selected");
+
+                                    bigImg.src = "/img/product_images/pdp-3-big.jpg";
+                                });
+
+                                productImage4.addEventListener("click", () => {
+                                    productImage4.classList.add("selected");
+                                    productImage1.classList.remove("selected");
+                                    productImage2.classList.remove("selected");
+                                    productImage3.classList.remove("selected");
+
+                                    bigImg.src = "/img/product_images/pdp-4-big.jpg";
+                                });
+
+                                // count decrease and increase js process
+                                const decreaseCountBtn = document.querySelector("#decrease-count");
+                                decreaseCountBtn.addEventListener("click", () => {
+                                    var Count = parseInt($("#product_span").text());
+                                    document.getElementById("product_span").innerHTML = Count - 1;
+                                });
+
+                                const increaseCountBtn = document.querySelector("#increase-count");
+                                increaseCountBtn.addEventListener("click", () => {
+                                    var Count = parseInt($("#product_span").text());
+                                    document.getElementById("product_span").innerHTML = Count + 1;
+                                });
+
+                                // Add to cart btn function
+                                function addToCartBtnClick() {
+                                    var itemCount = parseInt($("#cart_span").text());
+                                    document.getElementById("cart_span").innerHTML = itemCount + 1;
+                                }
+
+                                window.onload = function() {
+                                    // ADD TO CART btn js process
+                                    var btnAddToCart = document.getElementById("pdp_addToCart_btn");
+                                    btnAddToCart.addEventListener("click", addToCartBtnClick, true);
+
+                                    // Read more btn js process
+                                    var productContentText = document.getElementById("p_content_text").innerHTML;
+                                    var productContentTextShort = document.getElementById("p_content_text").innerHTML.substring(0, 100);
+                                    document.getElementById("p_content_text").innerHTML = productContentTextShort;
+
+                                    var btnReadMore = document.querySelector("#read_more_btn");
+                                    btnReadMore.addEventListener("click", () => {
+                                        document.getElementById("p_content_text").innerHTML = productContentText;
+                                    });
+
+                                    //Tabs heading part js process
+                                    const tab1 = document.querySelector(".tabs_1");
+                                    const tab2 = document.querySelector(".tabs_2");
+                                    const tab3 = document.querySelector(".tabs_3");
+
+                                    const tabHeading1 = document.querySelector(".tab_heading_1");
+                                    const tabHeading2 = document.querySelector(".tab_heading_2");
+                                    const tabHeading3 = document.querySelector(".tab_heading_3");
+
+                                    const text1 = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas accusamus, libero cum repellat, velit facilis ut ea placeat autem repudiandae voluptatem laborum vel magnam. Quis tempore excepturi molestiae ipsa blanditiis.";
+                                    const text2 = "Duis blandit sagittis nulla at pretium. Sed at accumsan tortor. Cras tristique purus eu urna accumsan posuere. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vel nibh laoreet magna facilisis laoreet. Duis ultrices dolor eget est varius, aliquam scelerisque enim viverra.";
+                                    const text3 = "Quisque tempus, dolor at auctor ultricies, mi dolor posuere diam, in feugiat velit nibh eget leo. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean id nisi leo. In commodo, tellus vel dignissim efficitur, risus orci auctor lorem, vitae ultricies augue massa id purus.";
+
+                                    tab1.addEventListener("click", () => {
+                                        document.getElementById("tab_text").innerHTML = text1;
+                                        tabHeading1.classList.add("selectedTab");
+                                        tabHeading2.classList.remove("selectedTab");
+                                        tabHeading3.classList.remove("selectedTab");
+                                    });
+                                    tab2.addEventListener("click", () => {
+                                        document.getElementById("tab_text").innerHTML = text2;
+                                        tabHeading2.classList.add("selectedTab");
+                                        tabHeading1.classList.remove("selectedTab");
+                                        tabHeading3.classList.remove("selectedTab");
+                                    });
+                                    tab3.addEventListener("click", () => {
+                                        document.getElementById("tab_text").innerHTML = text3;
+                                        tabHeading3.classList.add("selectedTab");
+                                        tabHeading1.classList.remove("selectedTab");
+                                        tabHeading2.classList.remove("selectedTab");
+                                    });
+                                }
+                            </script>
+                        </div>
+                        <div class="text-center">
+                            <button type="button" id="pdp_addToCart_btn">ADD TO CART</button>
+                        </div>
+                    </div>
+                    <div class="p-content">
+                        <p id="p_content_text">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totamrem aperiam, eaque ipsa quae ab illo inven- tore Beatae vitae dicta sunt explicabo.<br> Nemo enim ipsam voluptatem quia voluptas</p>
+                        <a id="read_more_btn">Read more</a>
+                    </div>
+                    <div class="product-social row">
+                        <p>Share</p>
+                        <ul class="list-unstyled row">
+                            <li>
+                                <a href="https://www.facebook.com/" target="_blank" class="footer-categories-icons"><i class="fab fa-facebook-f"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.google.com/" target="_blank" class="footer-categories-icons"><i class="fab fa-google-plus-g"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.twitter.com/" target="_blank" class="footer-categories-icons"><i class="fab fa-twitter"></i></a>
+                            </li>
+                            <li>
+                                <a href="https://www.pinterest.com/" target="_blank" class="footer-categories-icons"><i class="fab fa-pinterest-p"></i></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="product-tabs">
+            <div class="tabs-heading">
+                <a class="tabs_1 ">
+                    <h3 class="tab_heading_1 selectedTab">Description</h3>
+                </a>
+                <a class="tabs_2">
+                    <h3 class="tab_heading_2">Additional Information</h3>
+                </a>
+                <a class="tabs_3">
+                    <h3 class="tab_heading_3">Reviews(3)</h3>
+                </a>
+            </div>
+            <div class="tabs-content">
+                <p id="tab_text">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptas accusamus, libero cum repellat, velit facilis ut ea placeat autem repudiandae voluptatem laborum vel magnam. Quis tempore excepturi molestiae ipsa blanditiis.</p>
+                <p>Vestibulum in lobortis metus, nec auctor leo. Nulla sed auctor ex. Proin sem libero, consectetur sit amet elementum eget, tempus in nunc. Mauris augue eros, suscipit in nulla ut, elementum pretium purus. Etiam mauris diam, tristique eget
+                    fringilla sit amet, sagittis in purus. Curabitur tempor nulla urna. Quisque ut erat lectus. Aenean eu eros non </p>
+            </div>
+        </div>
+        <div class="product-popular-items">
+            <div class="div-product-heading">
+                <hr>
+                <p class="headingText">POPULAR ITEMS</p>
+                <hr>
+            </div>
+            <div class="item-cards">
+                <script type="text/javascript">
+                    const xhr = new XMLHttpRequest();
+                    xhr.onload = function() {
+                        if (this.status === 200) {
+                            try {
+                                const resObj = JSON.parse(this.responseText);
+                                console.log(resObj);
+                                const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a>${title}</a><a>${price}</a></div></div>`
+                                resObj.forEach(item => {
+                                        if (item.product_id <= 4) {
+                                            var child = document.createElement('div');
+                                            child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
+                                            document.querySelectorAll('.item-cards')[0].appendChild(child);
+                                        }
+                                    })
+                                    // navbar item count change processes
+                            } catch (e) {
+                                console.warn("There was an error in the JSON. File could not parse!...");
+                            }
+                        } else {
+                            console.warn("Did not receive 200 OK from response!...");
+                        }
+                        // console.log(this);
+                    };
+                    xhr.open('get', '/products.json');
+                    xhr.send();
+                </script>
+            </div>
+        </div>
+    </div>
+    <!-- Benefits section -->
+    <div class="benfits-section">
+        <div class="benefit">
+            <div class="benefit-img">
+                <img src="/img/benefit-1.png" alt="benefit 1 img">
+            </div>
+            <div class="benefit-content">
+                <h5>FOCUS</h5>
+                <p>Our unwavering focus on superior<br> service delivery and building next<br> generation competencies</p>
+            </div>
+        </div>
+        <div class="benefit">
+            <div class="benefit-img">
+                <img src="/img/benefit-2.png" alt="benefit 2 img">
+            </div>
+            <div class="benefit-content">
+                <h5>METHOD</h5>
+                <p>A standardized methodology designed<br> to deliver measurable business results<br> and predictable costs</p>
+            </div>
+        </div>
+        <div class="benefit">
+            <div class="benefit-img">
+                <img src="/img/benefit-3.png" alt="benefit 3 img">
+            </div>
+            <div class="benefit-content">
+                <h5>KNOWLEDGE</h5>
+                <p>A highly skilled, proactive workforce that<br> reliably improves each client's ROI while<br> mitigating their business risk</p>
+            </div>
+        </div>
+    </div>
+    <!-- /Benefits section -->
+
+
+
+    <!-- /Body -->
+
+    <!-- This tags call HTML from JS -->
+    <base-footer></base-footer>
+
+    <!-- Optional JavaScript -->
+    <script src="/dist/js/main.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+</body>
+
+</html>

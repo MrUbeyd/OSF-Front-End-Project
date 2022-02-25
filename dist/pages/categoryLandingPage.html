@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Main CSS File -->
+    <link rel="stylesheet" href="/dist/css/main.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+
+    <title>Category Landing Page</title>
+</head>
+
+
+<body>
+    <!-- This tags call HTML from JS -->
+    <base-navbar></base-navbar>
+
+    <!-- Body -->
+    <div class="category-landing-page-body w-100 row fill">
+        <div class="col-lg-6">
+            <ul class="list-unstyled row div-navigation">
+                <li>
+                    <a href="/index.html">Home</a>
+                </li>
+                <li>
+                    <p>/</p>
+                </li>
+                <li>
+                    <p>Category Landing</p>
+                </li>
+            </ul>
+        </div>
+        <div class="div-services">
+            <hr>
+            <p class="services">Services</p>
+            <hr>
+        </div>
+        <div class="services-body">
+
+            <!-- Filters section -->
+            <div class="services-filters">
+                <div class="services-filter">
+                    <h6>Price</h6>
+                    <a class="filter">
+                        $0.00--$100.00 
+                        <i class="fa fa-angle-down filter-icon" aria-hidden="true"></i>
+                    </a>
+                </div>
+                <div class="services-filter">
+                    <h6>Brands</h6>
+                    <a class="filter">
+                        Ukraine sport
+                        <i class="fa fa-angle-down filter-icon" aria-hidden="true"></i>
+                    </a> </div>
+                <div class="services-filter">
+                    <h6>Size</h6>
+                    <a class="filter">
+                        Small
+                        <i class="fa fa-angle-down filter-icon" aria-hidden="true"></i>
+                    </a> </div>
+                <div class="services-filter">
+                    <h6>Color</h6>
+                    <div class="color-filters">
+                        <div class="services-color-1"></div>
+                        <div class="services-color-2"></div>
+                        <div class="services-color-3"></div>
+                        <div class="services-color-4"></div>
+                        <div class="services-color-5"></div>
+                        <div class="services-color-6"></div>
+                        <div class="services-color-7"></div>
+                        <div class="services-color-8"></div>
+                    </div>
+                </div>
+                <div class="services-filter">
+                    <h6>Sort by</h6>
+                    <a class="filter">
+                        Price 
+                        <i class="fa fa-angle-down filter-icon" aria-hidden="true"></i>
+                    </a> </div>
+                <div class="services-filter">
+                    <h6>Show</h6>
+                    <a class="filter">
+                        16 per page 
+                        <i class="fa fa-angle-down filter-icon" aria-hidden="true"></i>
+                    </a> </div>
+            </div>
+            <!-- /Filters section -->
+            <div class="services-results-text">
+                <h5>12,931</h5>
+                <p>results in apparel</p>
+            </div>
+
+            <div class="item-cards">
+                <script type="text/javascript">
+                    const xhr = new XMLHttpRequest();
+                    xhr.onload = function() {
+                        if (this.status === 200) {
+                            try {
+                                const resObj = JSON.parse(this.responseText);
+                                console.log(resObj);
+                                const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a>${title}</a><a>${price}</a></div></div>`
+                                resObj.forEach(item => {
+                                        if (item.product_id <= 8) {
+                                            var child = document.createElement('div');
+                                            child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
+                                            document.querySelectorAll('.item-cards')[0].appendChild(child);
+                                        }
+                                        document.getElementById("services_load_more").addEventListener('click', function(e) {
+                                            if (item.product_id > 8 && item.product_id <= 12) {
+                                                var child = document.createElement('div');
+                                                if (item.product_id === 2) {
+                                                    child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
+                                                } else {
+                                                    child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
+                                                }
+                                                document.querySelectorAll('.item-cards')[0].appendChild(child);
+                                            }
+                                            this.remove();
+                                        });
+                                    })
+                                    // navbar item count change processes
+                            } catch (e) {
+                                console.warn("There was an error in the JSON. File could not parse!...");
+                            }
+                        } else {
+                            console.warn("Did not receive 200 OK from response!...");
+                        }
+                        // console.log(this);
+                    };
+                    xhr.open('get', '/products.json');
+                    xhr.send();
+                </script>
+            </div>
+            <div class="free-line"></div>
+            <!-- this line is made for prevent the row order from breaking. -->
+            <div class="text-center">
+                <button type="button" id="services_load_more">LOAD MORE</button>
+            </div>
+        </div>
+
+    </div>
+    <!-- /Body -->
+
+    <!-- Featured Products section -->
+    <div class="featured-products-secion">
+        <div class="featured-products-heading">
+            <h2>Featured Products</h2>
+            <p>Unde omnis iste natus error sit voluptatem</p>
+        </div>
+        <div class="featured-products-slider">
+            <a id="services_left_arrow"><i class="fa fa-angle-left"></i></a>
+            <hr class="mr-4">
+            <h4>///</h4>
+            <hr class="ml-4">
+            <a id="services_right_arrow"><i class="fa fa-angle-right"></i></a>
+        </div>
+        <div class="featured-products">
+            <div class="item-card" id="services_first_featured_item">
+                <div class="item-img"><img src="/img/product_images/product-1.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Kristina Dam Oak Table With White Marble Top</a>
+                    <div class="slider-product"><a>Marketing</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-2.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Hay - About A Lounge<br> Chair AAL 93</a>
+                    <div class="slider-product"><a>Awesome</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-3.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Activate Facial Mask and<br> Charcoal Soap</a>
+                    <div class="slider-product"><a>Marketing</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-4.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Cocktail Table Walnut<br> |YES</a>
+                    <div class="slider-product"><a>Awesome</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-5.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Hay - About A Lounge<br> Chair AAL 93</a>
+                    <div class="slider-product"><a>Marketing</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-6.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">TORY DESK CALENDAR</a>
+                    <div class="slider-product"><a>Awesome</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-7.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">CH445 Wing Chair on<br> SUITE NY</a>
+                    <div class="slider-product"><a>Marketing</a></div>
+                </div>
+            </div>
+            <div class="item-card">
+                <div class="item-img"><img src="/img/product_images/product-1.jpg" alt="product img"></div>
+                <div class="item-detail"><a href="#">Kristina Dam Oak Table With White Marble Top</a>
+                    <div class="slider-product"><a>Awesome</a></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!-- /Featured Products section -->
+
+
+    <!-- This tags call HTML from JS -->
+    <base-footer></base-footer>
+
+    <!-- Optional JavaScript -->
+    <script src="/dist/js/main.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
+</body>
+
+</html>

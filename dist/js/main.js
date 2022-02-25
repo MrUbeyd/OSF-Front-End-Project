@@ -1,24 +1,8 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
-    <!-- Main CSS File -->
-    <link rel="stylesheet" href="/dist/css/main.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-
-    <title>OSF Home Page</title>
-</head>
-
-<body class="light">
-
-    <nav class="navbar navbar-light navbar-expand-md">
+// Base navbar and footer classes...
+class BaseNavbar extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+        <nav class="navbar navbar-light navbar-expand-md">
         <!-- Main div of navbar -->
         <div class="container-fluid">
             <!-- Logo part -->
@@ -194,8 +178,9 @@
                             <a href="# ">
                                 <div>
                                     <i><img src="/img/icons/shopping-bag-.svg " class="header-icons-filter " alt="Shopping-Cart icon "></i>
-                                    <div class="cart_count"><span id="cart_span">2</span></div>
+                                    <div class="cart_count"><span class="cart_product_count" id="cart_span">2</span></div>
                                 </div>
+
                             </a>
                         </li>
                     </ul>
@@ -206,283 +191,15 @@
         </div>
         <!-- /Main div of navbar -->
     </nav>
+    `
+    }
+}
+customElements.define('base-navbar', BaseNavbar)
 
-    <!-- Body -->
-    <div>
-        <!-- Slider section -->
-        <div class="first-section">
-            <!--image slider start-->
-            <div class="slider">
-                <div class="slides">
-                    <!--radio buttons start-->
-                    <input type="radio" name="radio-btn" id="radio1">
-                    <input type="radio" name="radio-btn" id="radio2">
-                    <input type="radio" name="radio-btn" id="radio3">
-                    <!--radio buttons end-->
-                    <!--slide images start-->
-                    <div class="slide first">
-                        <img src="/img/slider-img.jpg" alt="">
-                        <div class="left-text-slide">
-                            <h1>Control and manage any<br> device with cloud solutions</h1>
-                            <p>Improve business performance and the user experience<br> with the right mix of IoT technology and processes</p>
-                            <a href="/dist/pages/categoryLandingPage.html">VIEW MORE</a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="/img/slider-img.jpg" alt="">
-                        <div class="center-text-slide">
-                            <h1>Control and manage any device with cloud solutions</h1>
-                            <p>Improve business performance and the user experience<br> with the right mix of IoT technology and processes</p>
-                            <a href="/dist/pages/categoryLandingPage.html">VIEW MORE</a>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <img src="/img/slider-img.jpg" alt="">
-                        <div class="right-text-slide">
-                            <h1>Control and manage any<br> device with cloud solutions</h1>
-                            <p>Improve business performance and the user experience<br> with the right mix of IoT technology and processes</p>
-                            <a href="/dist/pages/categoryLandingPage.html">VIEW MORE</a>
-                        </div>
-                    </div>
-                    <!--slide images end-->
-                    <!--automatic navigation start-->
-                    <div class="navigation-auto">
-                        <div class="auto-btn1"></div>
-                        <div class="auto-btn2"></div>
-                        <div class="auto-btn3"></div>
-                    </div>
-                    <!--automatic navigation end-->
-                </div>
-                <!--manual navigation start-->
-                <div class="navigation-manual">
-                    <label for="radio1" class="manual-btn"></label>
-                    <label for="radio2" class="manual-btn"></label>
-                    <label for="radio3" class="manual-btn"></label>
-                </div>
-                <!--manual navigation end-->
-            </div>
-            <!--image slider end-->
-
-            <div class="discount-social">
-                <div class="discount">
-                    <img src="/img/sales.jpg" alt="summer-sales-img">
-                    <div class="summer-sales">
-                        <h1>55%</h1>
-                        <h3>SUMMER SALES</h3>
-                    </div>
-                </div>
-                <div class="social">
-                    <h5>Follow us on Facebook</h5>
-                    <p>Sed ut perspiciatis unde omnis iste natus error sit</p>
-                    <a href="https://www.facebook.com">
-                        <i class="fab fa-facebook-f"></i> FOLLOW
-                    </a>
-                </div>
-            </div>
-        </div>
-        <!-- /Slider section -->
-
-        <!-- Popular Items section -->
-        <div class="popular-items-section">
-            <div class="popular-items">
-                <div class="popular-items-heading">
-                    <hr class="mr-4">
-                    <h4>Popular Items</h4>
-                    <hr class="ml-4">
-                </div>
-                <div class="item-cards">
-                    <script type="text/javascript">
-                        const xhr = new XMLHttpRequest();
-                        xhr.onload = function() {
-                            if (this.status === 200) {
-                                try {
-                                    const resObj = JSON.parse(this.responseText);
-                                    console.log(resObj);
-                                    const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a>${title}</a><a>${price}</a></div><div class="overlay"><div class="extra-buttons"><a class="addItemToCart"><i class="fa fa-plus"></i></a><a class="addItemToFav"><i class="fa fa-heart" ></i></a></div></div></div>`
-                                    const divTemplateSecondProduct = (img_url, title, price) => `<div class="item-card"><div class="item-img"><a href="/dist/pages/productDetailedPage.html"><img src="${img_url}" alt="product img"></a></div><div class="item-detail"><a href="/dist/pages/productDetailedPage.html">${title}</a><div class="second-product"><a href="/dist/pages/productDetailedPage.html">${price}</a><a id="buyItemToCart">BUY NOW</a></div></div></div>`
-                                    const divTemplateComment = (img_url) => `<div class="item-card"><div class="comment-bg"><img src="${img_url}" alt="comment bg img"></div><div class="overlay"><div class="extra-comment"><p>My dragons are<br> misbehaving again.<br>Unbelieveable!</p><div class="comment"><i class="fa fa-comment"></i><p> 5H AGO</p></div></div></div></div>`
-                                    resObj.forEach(item => {
-                                            if (item.product_id <= 8) {
-                                                var child = document.createElement('div');
-                                                if (item.product_id === 2) {
-                                                    child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
-                                                } else if (item.product_id === 8) {
-                                                    child.innerHTML = divTemplateComment(item.product_img, item.product_title, item.product_price);
-                                                } else {
-                                                    child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
-                                                }
-                                                document.querySelectorAll('.item-cards')[0].appendChild(child);
-                                            }
-                                            document.getElementById("load_more").addEventListener('click', function(e) {
-                                                if (item.product_id > 8 && item.product_id <= 12) {
-                                                    var child = document.createElement('div');
-                                                    if (item.product_id === 2) {
-                                                        child.innerHTML = divTemplateSecondProduct(item.product_img, item.product_title, item.product_price);
-                                                    } else {
-                                                        child.innerHTML = divTemplate(item.product_img, item.product_title, item.product_price);
-                                                    }
-                                                    document.querySelectorAll('.item-cards')[0].appendChild(child);
-                                                }
-                                                this.remove();
-                                            });
-                                        })
-                                        // navbar item count change processes
-                                    const buyItemBtn = document.querySelector("#buyItemToCart");
-                                    buyItemBtn.addEventListener("click", () => {
-                                        var itemCount = parseInt($("#cart_span").text());
-                                        document.getElementById("cart_span").innerHTML = itemCount + 1;
-                                    });
-                                } catch (e) {
-                                    console.warn("There was an error in the JSON. File could not parse!...");
-                                }
-                            } else {
-                                console.warn("Did not receive 200 OK from response!...");
-                            }
-                            // console.log(this);
-                        };
-                        xhr.open('get', 'products.json');
-                        xhr.send();
-                    </script>
-                </div>
-                <div class="text-center">
-                    <button type="button" id="load_more">LOAD MORE<i class="fas fa-redo"></i></button>
-                </div>
-            </div>
-        </div>
-        <!-- /Popular Items section -->
-
-        <!-- Banner section -->
-        <div class="banner-section">
-            <img src="/img/banner-img.png" alt="banner img">
-        </div>
-        <!-- /Banner section -->
-
-        <!-- Featured Products section -->
-        <div class="featured-products-secion">
-            <div class="featured-products-heading">
-                <h2>Featured Products</h2>
-                <p>Unde omnis iste natus error sit voluptatem</p>
-            </div>
-            <div class="featured-products-slider">
-                <a id="left_arrow"><i class="fa fa-angle-left"></i></a>
-                <hr class="mr-4">
-                <h4>///</h4>
-                <hr class="ml-4">
-                <a id="right_arrow"><i class="fa fa-angle-right"></i></a>
-            </div>
-            <div class="featured-products">
-                <div class="item-card" id="first_featured_item">
-                    <div class="item-img"><img src="/img/product_images/product-1.jpg" alt="product img"></div>
-                    <div class="item-detail"><a href="#">Kristina Dam Oak Table With White Marble Top</a>
-                        <div class="slider-product"><a>Marketing</a></div>
-                    </div>
-                </div>
-                <div class="item-card">
-                    <div class="item-img"><img src="/img/product_images/product-2.jpg" alt="product img"></div>
-                    <div class="item-detail"><a href="#">Hay - About A Lounge<br> Chair AAL 93</a>
-                        <div class="slider-product"><a>Awesome</a></div>
-                    </div>
-                </div>
-                <div class="item-card">
-                    <div class="item-img"><img src="/img/product_images/product-3.jpg" alt="product img"></div>
-                    <div class="item-detail"><a href="#">Activate Facial Mask and<br> Charcoal Soap</a>
-                        <div class="slider-product"><a>Marketing</a></div>
-                    </div>
-                </div>
-                <div class="item-card">
-                    <div class="item-img"><img src="/img/product_images/product-4.jpg" alt="product img"></div>
-                    <div class="item-detail"><a href="#">Cocktail Table Walnut<br> |YES</a>
-                        <div class="slider-product"><a>Awesome</a></div>
-                    </div>
-                </div>
-                <div class="item-card">
-                    <div class="item-img"><img src="/img/product_images/product-5.jpg" alt="product img"></div>
-                    <div class="item-detail"><a href="#">Hay - About A Lounge<br> Chair AAL 93</a>
-                        <div class="slider-product"><a>Marketing</a></div>
-                    </div>
-                </div>
-                <div class="item-card">
-                    <div class="item-img"><img src="/img/product_images/product-6.jpg" alt="product img"></div>
-                    <div class="item-detail"><a href="#">TORY DESK CALENDAR</a>
-                        <div class="slider-product"><a>Awesome</a></div>
-                    </div>
-                </div>
-                <div class="item-card">
-                    <div class="item-img"><img src="/img/product_images/product-7.jpg" alt="product img"></div>
-                    <div class="item-detail"><a href="#">CH445 Wing Chair on<br> SUITE NY</a>
-                        <div class="slider-product"><a>Marketing</a></div>
-                    </div>
-                </div>
-                <div class="item-card">
-                    <div class="item-img"><img src="/img/product_images/product-1.jpg" alt="product img"></div>
-                    <div class="item-detail"><a href="#">Kristina Dam Oak Table With White Marble Top</a>
-                        <div class="slider-product"><a>Awesome</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /Featured Products section -->
-
-        <!-- Benefits section -->
-        <div class="benfits-section">
-            <div class="benefit">
-                <div class="benefit-img">
-                    <img src="/img/benefit-1.png" alt="benefit 1 img">
-                </div>
-                <div class="benefit-content">
-                    <h5>FOCUS</h5>
-                    <p>Our unwavering focus on superior<br> service delivery and building next<br> generation competencies</p>
-                </div>
-            </div>
-            <div class="benefit">
-                <div class="benefit-img">
-                    <img src="/img/benefit-2.png" alt="benefit 2 img">
-                </div>
-                <div class="benefit-content">
-                    <h5>METHOD</h5>
-                    <p>A standardized methodology designed<br> to deliver measurable business results<br> and predictable costs</p>
-                </div>
-            </div>
-            <div class="benefit">
-                <div class="benefit-img">
-                    <img src="/img/benefit-3.png" alt="benefit 3 img">
-                </div>
-                <div class="benefit-content">
-                    <h5>KNOWLEDGE</h5>
-                    <p>A highly skilled, proactive workforce that<br> reliably improves each client's ROI while<br> mitigating their business risk</p>
-                </div>
-            </div>
-        </div>
-        <!-- /Benefits section -->
-
-        <!-- Cookie Policy -->
-        <div class="cookie-container row">
-            <div class="row w-100">
-                <div>
-                    <h5>This website uses cookies<br></h5>
-                </div>
-                <div class="col btn-cookie-close">
-                    <a href="#">
-                        <h4>X</h4>
-                    </a>
-                </div>
-            </div>
-            <div class="col-10">
-                <p>OSF uses its own and third-party cookies for statistical purposes, to know your preferences, for website performance<br> and interaction with social media offering publicity tailored to your interest. If you continue browsing, we consider
-                    that you accept its use.<br> You can expand this information consulting our <a href="/dist/pages/404page.html">Cookies Policy Page.</a>
-                </p>
-            </div>
-            <div class="col text-center">
-                <button class="cookie-button">
-            ACCEPT
-        </button>
-            </div>
-        </div>
-        <!-- /Cookie Policy -->
-    </div>
-    <!-- /Body -->
-
-    <!-- Footer -->
+class BaseFooter extends HTMLElement {
+    connectedCallback() {
+        this.innerHTML = `
+        <!-- Footer -->
     <div>
         <section>
             <footer class="bg-white ">
@@ -494,8 +211,8 @@
                         <div class="text-left col-lg-3 col-md-12 mb-4 mb-md-0">
                             <div class="pb-4 mb-3">
                                 &copy;Copyright
-                                <span id="copyrightYear">
-                                    <script>document.getElementById('copyrightYear').appendChild(document.createTextNode(new Date().getFullYear()))</script>
+                                <span>
+                                    2022
                                 </span>.<br>All Rights Reserved.
                             </div>
                             <h6 class="text-uppercase font-weight-bold">Contact</h6>
@@ -583,6 +300,7 @@
                                 <li class="pb-3">
                                     <a href="/dist/pages/404page.html" class="footer-categories">Woman's Fashion</a>
                                 </li>
+
                             </ul>
                         </div>
                         <!-- /Grid column -->
@@ -633,14 +351,133 @@
         </section>
     </div>
     <!-- /Footer -->
+        `
+    }
+}
+customElements.define('base-footer', BaseFooter)
+    // /Base navbar and footer classes...
+
+// Cookie-container JS
+const cookieContainer = document.querySelector(".cookie-container");
+const cookieButton = document.querySelector(".cookie-button");
+const cookieCloseButton = document.querySelector(".btn-cookie-close");
+
+cookieCloseButton.addEventListener("click", () => {
+    cookieContainer.classList.remove("active");
+});
+
+cookieButton.addEventListener("click", () => {
+    cookieContainer.classList.remove("active");
+    localStorage.setItem("cookieBannerAccepted", "true");
+});
+
+setTimeout(() => {
+    if (!localStorage.getItem("cookieBannerAccepted")) {
+        cookieContainer.classList.add("active");
+    }
+}, 10000);
+
+// /Cookie-container JS
 
 
-    <!-- Optional JavaScript -->
-    <script src="/dist/js/main.js"></script>
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js " integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo " crossorigin="anonymous "></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js " integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1 " crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js " integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM " crossorigin="anonymous "></script>
-</body>
+// Login pop-up js
+const togglePassword = document.querySelector('#togglePassword');
+const password = document.querySelector('#id_password');
 
-</html>
+togglePassword.addEventListener('click', function(e) {
+    // toggle the type attribute
+    const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+    password.setAttribute('type', type);
+    // toggle the eye slash icon
+    this.classList.toggle('fa-eye-slash');
+});
+
+document.getElementById("login_btn").addEventListener('click', function(e) {
+    const passVal = password.value;
+    if (/[A-Z]/.test(passVal) && /[0-9]/.test(passVal) && /[^A-Za-z0-9]/.test(passVal)) {
+        console.log("password specify the rules...");
+    } else {
+        alert("Password must have one special character, one number, one uppercase character and at least 6 character...");
+    }
+
+});
+// /Login pop-up js
+
+// Slider JS
+var counter = 1;
+setInterval(function() {
+    document.getElementById('radio' + counter).checked = true;
+    counter++;
+    if (counter > 3) {
+        counter = 1;
+    }
+}, 5000);
+// /Slider JS
+
+
+// add +1 to navbar counts(fav, cart) JS
+const addItemToCartBtn = document.querySelectorAll(".addItemToCart");
+for (let i = 0; i < addItemToCartBtn.length; i++) {
+    console.log(addItemToCartBtn[i]);
+    addItemToCartBtn[i].addEventListener("click", () => {
+        var itemCount = parseInt($("#cart_span").text());
+        document.getElementById("cart_span").innerHTML = itemCount + 1;
+    });
+}
+const addItemToFavBtn = document.querySelectorAll(".addItemToFav");
+for (let i = 0; i < addItemToFavBtn.length; i++) {
+    addItemToFavBtn[i].addEventListener("click", () => {
+        var itemCount = parseInt($("#fav_span").text());
+        document.getElementById("fav_span").innerHTML = itemCount + 1;
+    });
+}
+
+// Featured Products section JS
+document.getElementById("left_arrow").addEventListener('click', function(e) {
+    const item_card = document.getElementById("first_featured_item");
+    if (getComputedStyle(item_card).marginLeft === "-240px") {
+        item_card.style.marginLeft = "0px";
+    } else if (getComputedStyle(item_card).marginLeft === "-480px") {
+        item_card.style.marginLeft = "-240px";
+    } else if (getComputedStyle(item_card).marginLeft === "-720px") {
+        item_card.style.marginLeft = "-480px";
+    } else if (getComputedStyle(item_card).marginLeft === "-960px") {
+        item_card.style.marginLeft = "-720px";
+    } else {
+        item_card.style.marginLeft = "-960px";
+    }
+});
+document.getElementById("right_arrow").addEventListener('click', function(e) {
+    const item_card = document.getElementById("first_featured_item");
+    if (getComputedStyle(item_card).marginLeft === "0px") {
+        item_card.style.marginLeft = "-240px";
+    } else if (getComputedStyle(item_card).marginLeft === "-240px") {
+        item_card.style.marginLeft = "-480px";
+    } else if (getComputedStyle(item_card).marginLeft === "-480px") {
+        item_card.style.marginLeft = "-720px";
+    } else if (getComputedStyle(item_card).marginLeft === "-720px") {
+        item_card.style.marginLeft = "-960px";
+    } else {
+        item_card.style.marginLeft = "0px";
+    }
+});
+
+function recursiveSlider() {
+    setTimeout(() => {
+        console.log("5sn gecti");
+        const item_card = document.getElementById("first_featured_item");
+        if (getComputedStyle(item_card).marginLeft === "0px") {
+            item_card.style.marginLeft = "-480px";
+        } else if (getComputedStyle(item_card).marginLeft === "-240px") {
+            item_card.style.marginLeft = "-480px";
+        } else if (getComputedStyle(item_card).marginLeft === "-480px") {
+            item_card.style.marginLeft = "-960px";
+        } else if (getComputedStyle(item_card).marginLeft === "-720px") {
+            item_card.style.marginLeft = "-960px";
+        } else {
+            item_card.style.marginLeft = "0px";
+        }
+        recursiveSlider();
+    }, 2500);
+}
+recursiveSlider();
