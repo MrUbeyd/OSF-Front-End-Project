@@ -46,33 +46,6 @@ body {
     font-weight: weight(regular);
 }
 
-.main {
-    @include flexCenter(row);
-    width: 90%;
-    padding-top: 5rem;
-    margin: 0 auto;
-    #{&}__paragraph1 {
-        /*String interpolation ???*/
-        color: $accent-color;
-        &:hover {
-            color: black;
-        }
-    }
-    #{&}__paragraph2 {
-        @extend .main__paragraph1;
-        &:hover {
-            color: greenyellow;
-        }
-    }
-    @include mobile-size {
-        flex-direction: column;
-        background-color: blueviolet;
-    }
-    @include mid-size {
-        background-color: coral;
-    }
-}
-
 .light {
     /*Theme coloring if true light theme active, else dark theme active ???*/
     @include theme($light-theme: false);

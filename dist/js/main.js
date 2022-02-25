@@ -357,9 +357,7 @@ class BaseFooter extends HTMLElement {
 customElements.define('base-footer', BaseFooter)
     // /Base navbar and footer classes...
 
-
 // Cookie-container JS
-
 const cookieContainer = document.querySelector(".cookie-container");
 const cookieButton = document.querySelector(".cookie-button");
 const cookieCloseButton = document.querySelector(".btn-cookie-close");
@@ -415,7 +413,6 @@ setInterval(function() {
     }
 }, 5000);
 // /Slider JS
-
 
 
 // add +1 to navbar counts(fav, cart) JS
@@ -484,54 +481,3 @@ function recursiveSlider() {
     }, 2500);
 }
 recursiveSlider();
-
-//!!! Category Landing Page Featured Products NOT WORKS
-
-// document.getElementById("services_left_arrow").addEventListener('click', function(e) {
-//     const item_card_services = document.getElementById("services_first_featured_item");
-//     if (getComputedStyle(item_card_services).marginLeft === "-240px") {
-//         item_card_services.style.marginLeft = "0px";
-//     } else if (getComputedStyle(item_card_services).marginLeft === "-480px") {
-//         item_card_services.style.marginLeft = "-240px";
-//     } else if (getComputedStyle(item_card_services).marginLeft === "-720px") {
-//         item_card_services.style.marginLeft = "-480px";
-//     } else if (getComputedStyle(item_card_services).marginLeft === "-960px") {
-//         item_card_services.style.marginLeft = "-720px";
-//     } else {
-//         item_card_services.style.marginLeft = "-960px";
-//     }
-// });
-// document.getElementById("services_right_arrow").addEventListener('click', function(e) {
-//     const item_card_services = document.getElementById("services_first_featured_item");
-//     if (getComputedStyle(item_card_services).marginLeft === "0px") {
-//         item_card_services.style.marginLeft = "-240px";
-//     } else if (getComputedStyle(item_card_services).marginLeft === "-240px") {
-//         item_card_services.style.marginLeft = "-480px";
-//     } else if (getComputedStyle(item_card_services).marginLeft === "-480px") {
-//         item_card_services.style.marginLeft = "-720px";
-//     } else if (getComputedStyle(item_card_services).marginLeft === "-720px") {
-//         item_card_services.style.marginLeft = "-960px";
-//     } else {
-//         item_card_services.style.marginLeft = "0px";
-//     }
-// });
-
-// function recursiveSliderServices() {
-//     setTimeout(() => {
-//         console.log("5sn gecti");
-//         const item_card_services = document.getElementById("services_first_featured_item");
-//         if (getComputedStyle(item_card_services).marginLeft === "0px") {
-//             item_card_services.style.marginLeft = "-480px";
-//         } else if (getComputedStyle(item_card_services).marginLeft === "-240px") {
-//             item_card_services.style.marginLeft = "-480px";
-//         } else if (getComputedStyle(item_card_services).marginLeft === "-480px") {
-//             item_card_services.style.marginLeft = "-960px";
-//         } else if (getComputedStyle(item_card_services).marginLeft === "-720px") {
-//             item_card_services.style.marginLeft = "-960px";
-//         } else {
-//             item_card_services.style.marginLeft = "0px";
-//         }
-//         recursiveSliderServices();
-//     }, 2500);
-// }
-// recursiveSliderServices();

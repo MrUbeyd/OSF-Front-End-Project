@@ -196,7 +196,6 @@
                                     <i><img src="/img/icons/shopping-bag-.svg " class="header-icons-filter " alt="Shopping-Cart icon "></i>
                                     <div class="cart_count"><span id="cart_span">2</span></div>
                                 </div>
-
                             </a>
                         </li>
                     </ul>
@@ -292,8 +291,6 @@
                     <hr class="ml-4">
                 </div>
                 <div class="item-cards">
-
-                    <!-- This script not works when transport to js file IDK why??? -->
                     <script type="text/javascript">
                         const xhr = new XMLHttpRequest();
                         xhr.onload = function() {
@@ -301,9 +298,6 @@
                                 try {
                                     const resObj = JSON.parse(this.responseText);
                                     console.log(resObj);
-                                    // if (resObj.product_price == "$20.97") {
-                                    //     document.getElementById("product-title").innerHTML = resObj.product_title;
-                                    // }
                                     const divTemplate = (img_url, title, price) => `<div class="item-card"><div class="item-img"><img src="${img_url}" alt="product img"></div><div class="item-detail"><a>${title}</a><a>${price}</a></div><div class="overlay"><div class="extra-buttons"><a class="addItemToCart"><i class="fa fa-plus"></i></a><a class="addItemToFav"><i class="fa fa-heart" ></i></a></div></div></div>`
                                     const divTemplateSecondProduct = (img_url, title, price) => `<div class="item-card"><div class="item-img"><a href="/dist/pages/productDetailedPage.html"><img src="${img_url}" alt="product img"></a></div><div class="item-detail"><a href="/dist/pages/productDetailedPage.html">${title}</a><div class="second-product"><a href="/dist/pages/productDetailedPage.html">${price}</a><a id="buyItemToCart">BUY NOW</a></div></div></div>`
                                     const divTemplateComment = (img_url) => `<div class="item-card"><div class="comment-bg"><img src="${img_url}" alt="comment bg img"></div><div class="overlay"><div class="extra-comment"><p>My dragons are<br> misbehaving again.<br>Unbelieveable!</p><div class="comment"><i class="fa fa-comment"></i><p> 5H AGO</p></div></div></div></div>`
@@ -349,9 +343,7 @@
                         xhr.open('get', 'products.json');
                         xhr.send();
                     </script>
-
                 </div>
-
                 <div class="text-center">
                     <button type="button" id="load_more">LOAD MORE<i class="fas fa-redo"></i></button>
                 </div>
@@ -427,7 +419,6 @@
                         <div class="slider-product"><a>Awesome</a></div>
                     </div>
                 </div>
-
             </div>
         </div>
         <!-- /Featured Products section -->
@@ -489,7 +480,6 @@
         </div>
         <!-- /Cookie Policy -->
     </div>
-
     <!-- /Body -->
 
     <!-- Footer -->
@@ -593,7 +583,6 @@
                                 <li class="pb-3">
                                     <a href="/dist/pages/404page.html" class="footer-categories">Woman's Fashion</a>
                                 </li>
-
                             </ul>
                         </div>
                         <!-- /Grid column -->
@@ -644,7 +633,6 @@
         </section>
     </div>
     <!-- /Footer -->
-
 
 
     <!-- Optional JavaScript -->
