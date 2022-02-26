@@ -326,7 +326,22 @@
                                                 this.remove();
                                             });
                                         })
-                                        // navbar item count change processes
+                                        // add +1 to navbar counts(fav, cart) JS
+                                    const addItemToCartBtn = document.querySelectorAll(".addItemToCart");
+                                    for (let i = 0; i < addItemToCartBtn.length; i++) {
+                                        addItemToCartBtn[i].addEventListener("click", () => {
+                                            var itemCount = parseInt($("#cart_span").text());
+                                            document.getElementById("cart_span").innerHTML = itemCount + 1;
+                                        });
+                                    }
+                                    const addItemToFavBtn = document.querySelectorAll(".addItemToFav");
+                                    for (let i = 0; i < addItemToFavBtn.length; i++) {
+                                        addItemToFavBtn[i].addEventListener("click", () => {
+                                            var itemCount = parseInt($("#fav_span").text());
+                                            document.getElementById("fav_span").innerHTML = itemCount + 1;
+                                        });
+                                    }
+                                    // navbar item count change processes
                                     const buyItemBtn = document.querySelector("#buyItemToCart");
                                     buyItemBtn.addEventListener("click", () => {
                                         var itemCount = parseInt($("#cart_span").text());
