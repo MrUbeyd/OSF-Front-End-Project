@@ -415,22 +415,7 @@ setInterval(function() {
 // /Slider JS
 
 
-// add +1 to navbar counts(fav, cart) JS
-const addItemToCartBtn = document.querySelectorAll(".addItemToCart");
-for (let i = 0; i < addItemToCartBtn.length; i++) {
-    console.log(addItemToCartBtn[i]);
-    addItemToCartBtn[i].addEventListener("click", () => {
-        var itemCount = parseInt($("#cart_span").text());
-        document.getElementById("cart_span").innerHTML = itemCount + 1;
-    });
-}
-const addItemToFavBtn = document.querySelectorAll(".addItemToFav");
-for (let i = 0; i < addItemToFavBtn.length; i++) {
-    addItemToFavBtn[i].addEventListener("click", () => {
-        var itemCount = parseInt($("#fav_span").text());
-        document.getElementById("fav_span").innerHTML = itemCount + 1;
-    });
-}
+
 
 // Featured Products section JS
 document.getElementById("left_arrow").addEventListener('click', function(e) {
@@ -464,7 +449,6 @@ document.getElementById("right_arrow").addEventListener('click', function(e) {
 
 function recursiveSlider() {
     setTimeout(() => {
-        console.log("5sn gecti");
         const item_card = document.getElementById("first_featured_item");
         if (getComputedStyle(item_card).marginLeft === "0px") {
             item_card.style.marginLeft = "-480px";
